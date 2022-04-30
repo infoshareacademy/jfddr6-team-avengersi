@@ -13,9 +13,11 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
+import { signOut } from "firebase/auth";
+import { auth } from "../../db";
 
 const links = [
-  ["strona główna", "/"],
+  ["Strona główna", "/"],
   ["Psiaki do adpocji", "/psy"],
   ["Wolontariat", "/wolontariat"],
 ];
@@ -24,7 +26,7 @@ const links = [
 // const links = ["/", "/psy", "/wolontariat"];
 const settings = ["Wyloguj"];
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = ({ user }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -41,6 +43,11 @@ const ResponsiveAppBar = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleLogOut = ({ user }) => {
+    signOut(auth);
+    console.log("wylogowano");
   };
   return (
     <AppBar position="static">
@@ -86,10 +93,7 @@ const ResponsiveAppBar = () => {
             >
               {links.map(([name, path]) => (
                 <MenuItem key={name} onClick={handleCloseNavMenu}>
-                  <NavLink
-                    to={path}
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
+                  <NavLink to={path} className="link">
                     <Typography component="span" textAlign="center">
                       {name}
                     </Typography>
@@ -113,10 +117,7 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                <NavLink
-                  to={path}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
+                <NavLink to={path} className="link">
                   {name}
                 </NavLink>
               </Button>
@@ -146,7 +147,7 @@ const ResponsiveAppBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={handleLogOut}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
