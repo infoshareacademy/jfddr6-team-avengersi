@@ -10,7 +10,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <ResponsiveAppBar color="palette.primary" />
+        <ResponsiveAppBar />
         <Routes>
           <Route path="/" element={<div>Strona główna</div>} />
           <Route
