@@ -7,22 +7,65 @@ import CastratedChkbx from "../Checkboxes/CastrartedChkbx.jsx";
 
 export default function AddDogForm() {
   return (
-    <Box
-      component="form"
-      sx={{
-        "& > :not(style)": { m: 1, width: "25ch" },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField id="outlined-basic" label="Imię" variant="outlined" />
-      <TextField id="outlined-basic" label="Rasa" variant="outlined" />
-      <TextField id="outlined-basic" label="Wiek" variant="outlined" />
-      <TextField id="outlined-basic" label="Waga" variant="outlined" />
-      <TextField id="outlined-basic" label="BOX" variant="outlined" />
-      <TextField id="outlined-basic" label="LEKI" variant="outlined" />
-      <TextField id="outlined-basic" label="WŚCIEKLIZNA" variant="outlined" />
-      <CastratedChkbx />
-    </Box>
+    <ThemeProvider theme={theme}>
+      <Box
+        component="form"
+        sx={{
+          "& > :not(style)": {
+            m: 1,
+            width: "25ch",
+          },
+        }}
+        noValidate
+        autoComplete="off"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+      >
+        <TextField
+          id="outlined-basic"
+          label="Imię"
+          variant="outlined"
+          size="small"
+        />
+        <TextField
+          id="outlined-basic"
+          label="Rasa"
+          variant="outlined"
+          size="small"
+        />
+        <TextField
+          id="outlined-basic"
+          label="Wiek"
+          variant="outlined"
+          size="small"
+        />
+        <TextField
+          id="outlined-basic"
+          label="Waga"
+          variant="outlined"
+          size="small"
+        />
+        <TextField
+          id="outlined-basic"
+          label="BOX"
+          variant="outlined"
+          size="small"
+        />
+        <TextField
+          id="outlined-basic"
+          label="LEKI"
+          variant="outlined"
+          size="small"
+        />
+        <TextField
+          id="outlined-basic"
+          label="WŚCIEKLIZNA"
+          variant="outlined"
+          size="small"
+        />
+        <CastratedChkbx />
+      </Box>
+    </ThemeProvider>
   );
 }
