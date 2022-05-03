@@ -13,7 +13,7 @@ export default function AddDogForm() {
         sx={{
           "& > :not(style)": {
             m: 1,
-            width: "25ch",
+            width: "35ch",
           },
         }}
         noValidate
