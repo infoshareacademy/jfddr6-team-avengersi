@@ -5,10 +5,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import * as React from "react";
 import { theme } from "./themes/Themes";
 import { ThemeProvider } from "@mui/material/styles";
+import AddDogForm from "./components/AddDog/AddDogForm.jsx";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <AddDogForm />
       <BrowserRouter>
         <ResponsiveAppBar />
         <Routes>
