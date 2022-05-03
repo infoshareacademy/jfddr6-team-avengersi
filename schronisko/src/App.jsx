@@ -10,7 +10,6 @@ import AddDogForm from "./components/AddDog/AddDogForm.jsx";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <AddDogForm />
       <BrowserRouter>
         <ResponsiveAppBar />
         <Routes>
@@ -28,6 +27,7 @@ function App() {
             element={<div>Strona konkretnego psa dla wolontariusza</div>}
           />
         </Routes>
+        <AddDogForm />
         <Footer />
       </BrowserRouter>
     </ThemeProvider>

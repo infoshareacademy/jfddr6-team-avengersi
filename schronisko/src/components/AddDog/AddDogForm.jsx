@@ -54,7 +54,7 @@ export default function AddDogForm() {
         />
         <TextField
           id="outlined-basic"
-          label="LEKI"
+          label="Leki"
           variant="outlined"
           size="small"
         />
