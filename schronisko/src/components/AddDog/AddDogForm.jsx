@@ -60,7 +60,7 @@ export default function AddDogForm() {
         />
         <TextField
           id="outlined-basic"
-          label="WŚCIEKLIZNA"
+          label="Wścieklizna"
           variant="outlined"
           size="small"
         />
