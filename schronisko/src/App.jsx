@@ -27,7 +27,6 @@ function App() {
             element={<div>Strona konkretnego psa dla wolontariusza</div>}
           />
         </Routes>
-        <AddDogForm />
         <Footer />
       </BrowserRouter>
     </ThemeProvider>

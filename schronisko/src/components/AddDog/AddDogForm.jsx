@@ -4,12 +4,11 @@ import TextField from "@mui/material/TextField";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "../../themes/Themes";
 import CastratedChkbx from "../Checkboxes/CastrartedChkbx.jsx";
-import { setDoc, doc, Timestamp } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import { db } from "../../db";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Button } from "@mui/material";
-import { makeStyles } from "@material-ui/core/styles";
 
 export default function AddDogForm({ refreshList }) {
   const [nameValue, setNameValue] = useState("");
@@ -54,14 +53,6 @@ export default function AddDogForm({ refreshList }) {
     addDog();
   };
 
-  const useStyles = makeStyles({
-    input: {
-      color: "secondary",
-    },
-  });
-
-  const classes = useStyles();
-
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -70,9 +61,8 @@ export default function AddDogForm({ refreshList }) {
           "& > :not(style)": {
             m: 1,
             width: "35ch",
-            fontFamily: "Roboto Helvetica Arial sans-serif",
-            border: "primary",
             boxShadow: 2,
+            fontFamily: "Roboto, Helvetica, Arial,sans-serif",
           },
         }}
         noValidate
@@ -145,6 +135,7 @@ export default function AddDogForm({ refreshList }) {
           variant="outlined"
           size="small"
         />
+
         <CastratedChkbx />
         <Button variant="text" type="submit" color="secondary">
           DODAJ PSIAKA
