@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {
