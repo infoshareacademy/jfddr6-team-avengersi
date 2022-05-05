@@ -11,7 +11,6 @@ const CastratedChkbx = () => {
           "& .MuiFormControlLabel-label": {
             fontFamily: "Roboto, Helvetica, Arial,sans-serif",
             fontWeight: "500",
-            color: "#E28CA0",
           },
         }}
         control={
