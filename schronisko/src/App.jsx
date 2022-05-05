@@ -5,8 +5,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import * as React from "react";
 import { theme } from "./themes/Themes";
 import { ThemeProvider } from "@mui/material/styles";
-import AddDogForm from "./components/AddDog/AddDogForm.jsx";
-import { GetDogPhoto } from "./components/DogProfile/GetDogPhoto";
 
 function App() {
   return (
@@ -28,6 +26,7 @@ function App() {
             element={<div>Strona konkretnego psa dla wolontariusza</div>}
           />
         </Routes>
+
         <Footer />
       </BrowserRouter>
     </ThemeProvider>
