@@ -51,10 +51,10 @@ const ResponsiveAppBar = ({ user }) => {
   };
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container maxWidth="100vw">
         <Toolbar disableGutters>
           <Typography
-            variant="h6"
+            variant="h4"
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
@@ -71,7 +71,7 @@ const ResponsiveAppBar = ({ user }) => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon color="secondary" />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -106,16 +106,38 @@ const ResponsiveAppBar = ({ user }) => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+            sx={{
+              flexGrow: 1,
+              display: {
+                xs: "block",
+                md: "none",
+              },
+            }}
           >
             <Logo />
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: {
+                xs: "none",
+                md: "flex",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-evenly",
+              },
+            }}
+          >
             {links.map(([name, path]) => (
               <Button
                 key={name}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  fontSize: "19px",
+                }}
               >
                 <NavLink to={path} className="link">
                   {name}
@@ -126,8 +148,15 @@ const ResponsiveAppBar = ({ user }) => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <IconButton
+                onClick={handleOpenUserMenu}
+                sx={{ p: 0, backgroundColor: "#89188F" }}
+              >
+                <Avatar
+                  alt="Remy Sharp"
+                  src=""
+                  sx={{ backgroundColor: "#89188F" }}
+                />
               </IconButton>
             </Tooltip>
             <Menu

@@ -1,6 +1,10 @@
+* {
+  margin: 0;
+}
+
 .link {
   text-decoration: none;
-  color: inherit;
+  color: #89188f;
 }
 img.profileDogPhoto {
   width: 100%;
