@@ -20,29 +20,49 @@ import { ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../db";
 import { useState } from "react";
 
-export default function AddDogForm() {
-  const [nameValue, setNameValue] = useState("");
-  const [breedValue, setBreedValue] = useState("");
-  const [dateOfBirthValue, setDateOfBirthValue] = useState("");
-  const [weightValue, setWeightValue] = useState("");
-  const [boxValue, setBoxValue] = useState("");
-  const [pillsValue, setPillsValue] = useState("");
-  const [rabiesVaccinationValue, setRabiesVaccinationValue] = useState("");
-  const [sexValue, setSexValue] = useState("");
+export const AddDogForm = () => {
+  const [formState, setFormState] = useState({
+    name: "",
+    breed: "",
+    dateOfBirth: "",
+    weight: "",
+    box: "",
+    pills: "",
+    rabiesVaccination: "",
+    sex: "",
+    fixed: "",
+    adopted: "",
+    description: "",
+    comment: "",
+  });
+
+  // const [nameValue, setNameValue] = useState("");
+  // const [breedValue, setBreedValue] = useState("");
+  // const [dateOfBirthValue, setDateOfBirthValue] = useState("");
+  // const [weightValue, setWeightValue] = useState("");
+  // const [boxValue, setBoxValue] = useState("");
+  // const [pillsValue, setPillsValue] = useState("");
+  // const [rabiesVaccinationValue, setRabiesVaccinationValue] = useState("");
+  // const [sexValue, setSexValue] = useState("");
+  // const [descriptionValue, setDescriptionValue] = useState("");
+  // const [commentValue, setCommentValue] = useState("");
+
   const [isFixed, setIsFixed] = useState(true);
   const [isAdopted, setIsAdopted] = useState(true);
 
   const dogId = uuidv4();
 
   const addDog = async () => {
-    const name = nameValue;
-    const breed = breedValue;
-    const dateOfBirth = dateOfBirthValue;
-    const weight = weightValue;
-    const box = boxValue;
-    const pills = pillsValue;
-    const rabiesVaccination = rabiesVaccinationValue;
-    const sex = sexValue;
+    const name = formState.name;
+    const breed = formState.breed;
+    const dateOfBirth = formState.dateOfBirth;
+    const weight = formState.weight;
+    const box = formState.box;
+    const pills = formState.pills;
+    const rabiesVaccination = formState.RabiesVaccination;
+    const sex = formState.sex;
+    const description = formState.description;
+    const comment = formState.comment;
     const fixed = isFixed;
     const adopted = isAdopted;
 
@@ -57,16 +77,24 @@ export default function AddDogForm() {
       sex,
       fixed,
       adopted,
+      description,
+      comment,
     });
 
-    setNameValue("");
-    setBreedValue("");
-    setDateOfBirthValue("");
-    setWeightValue("");
-    setBoxValue("");
-    setPillsValue("");
-    setRabiesVaccinationValue("");
-    setSexValue("");
+    setFormState({
+      name: "",
+      breed: "",
+      dateOfBirth: "",
+      weight: "",
+      box: "",
+      pills: "",
+      rabiesVaccination: "",
+      sex: "",
+      fixed: "",
+      adopted: "",
+      description: "",
+      comment: "",
+    });
     console.log("dog added");
   };
 
@@ -105,8 +133,8 @@ export default function AddDogForm() {
       >
         <TextField
           type="text"
-          value={nameValue}
-          onChange={(e) => setNameValue(e.target.value)}
+          value={formState.name}
+          onChange={(e) => setFormState({ ...formState, name: e.target.value })}
           id="outlined-basic"
           label="Imię"
           variant="outlined"
@@ -114,8 +142,10 @@ export default function AddDogForm() {
         />
         <TextField
           type="text"
-          value={breedValue}
-          onChange={(e) => setBreedValue(e.target.value)}
+          value={formState.breed}
+          onChange={(e) =>
+            setFormState({ ...formState, breed: e.target.value })
+          }
           id="outlined-basic"
           label="Rasa"
           variant="outlined"
@@ -127,9 +157,11 @@ export default function AddDogForm() {
             labelId="demo-simple-select-label"
             variant="outlined"
             id="outlined-basic"
-            value={sexValue}
+            value={formState.sex}
             label="Płeć"
-            onChange={(e) => setSexValue(e.target.value)}
+            onChange={(e) =>
+              setFormState({ ...formState, sex: e.target.value })
+            }
           >
             <MenuItem value={"male"}>pies</MenuItem>
             <MenuItem value={"female"}>suczka</MenuItem>
@@ -137,8 +169,10 @@ export default function AddDogForm() {
         </FormControl>
         <TextField
           type="string"
-          value={dateOfBirthValue}
-          onChange={(e) => setDateOfBirthValue(e.target.value)}
+          value={formState.dateOfBirth}
+          onChange={(e) =>
+            setFormState({ ...formState, dateOfBirth: e.target.value })
+          }
           id="outlined-basic"
           label="Data urodzenia"
           variant="outlined"
@@ -146,8 +180,10 @@ export default function AddDogForm() {
         />
         <TextField
           type="number"
-          value={weightValue}
-          onChange={(e) => setWeightValue(e.target.value)}
+          value={formState.weight}
+          onChange={(e) =>
+            setFormState({ ...formState, weight: e.target.value })
+          }
           id="outlined-basic"
           label="Waga kg"
           variant="outlined"
@@ -155,8 +191,8 @@ export default function AddDogForm() {
         />
         <TextField
           type="number"
-          value={boxValue}
-          onChange={(e) => setBoxValue(e.target.value)}
+          value={formState.box}
+          onChange={(e) => setFormState({ ...formState, box: e.target.value })}
           id="outlined-basic"
           label="Numer boksu"
           variant="outlined"
@@ -164,8 +200,10 @@ export default function AddDogForm() {
         />
         <TextField
           type="text"
-          value={pillsValue}
-          onChange={(e) => setPillsValue(e.target.value)}
+          value={formState.pills}
+          onChange={(e) =>
+            setFormState({ ...formState, pills: e.target.value })
+          }
           id="outlined-basic"
           label="Leki"
           variant="outlined"
@@ -173,12 +211,40 @@ export default function AddDogForm() {
         />
         <TextField
           type="string"
-          value={rabiesVaccinationValue}
-          onChange={(e) => setRabiesVaccinationValue(e.target.value)}
+          value={formState.rabiesVaccination}
+          onChange={(e) =>
+            setFormState({ ...formState, rabiesVaccination: e.target.value })
+          }
           id="outlined-basic"
           label="Wścieklizna"
           variant="outlined"
           size="small"
+        />
+        <TextField
+          type="text"
+          value={formState.description}
+          onChange={(e) =>
+            setFormState({ ...formState, description: e.target.value })
+          }
+          id="outlined-basic"
+          label="Opis"
+          variant="outlined"
+          size="small"
+          multiline
+          rows={5}
+        />
+        <TextField
+          type="text"
+          value={formState.comment}
+          onChange={(e) =>
+            setFormState({ ...formState, comment: e.target.value })
+          }
+          id="outlined-basic"
+          label="Komentarz"
+          variant="outlined"
+          size="small"
+          multiline
+          rows={5}
         />
         <FormControlLabel
           label="Kastracja"
@@ -231,4 +297,4 @@ export default function AddDogForm() {
       </Box>
     </ThemeProvider>
   );
-}
+};

@@ -4,15 +4,15 @@ import ResponsiveAppBar from "./components/Topbar/ResponsiveAppBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import * as React from "react";
 import { theme } from "./themes/Themes";
+import { AddDogForm } from "./components/AddDog/AddDogForm.jsx";
 import { ThemeProvider } from "@mui/material/styles";
-import AddDogForm from "./components/AddDog/AddDogForm.jsx";
-import { GetDogPhoto } from "./components/DogProfile/GetDogPhoto";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <ResponsiveAppBar />
+        <AddDogForm />
         <Routes>
           <Route path="/" element={<div>Strona główna</div>} />
           <Route
