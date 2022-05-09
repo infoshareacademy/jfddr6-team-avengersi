@@ -17,6 +17,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../db";
 
 const links = [
+  ["Home", "/"],
   ["Strona główna", "/"],
   ["Psiaki do adpocji", "/psy"],
   ["Wolontariat", "/wolontariat"],
@@ -53,14 +54,13 @@ const ResponsiveAppBar = ({ user }) => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          {/* <Logo /> */}
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-          >
-            <Logo />
-          </Typography>
+          ></Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
