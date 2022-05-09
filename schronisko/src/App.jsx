@@ -5,17 +5,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import * as React from "react";
 import { theme } from "./themes/Themes";
 import { ThemeProvider } from "@mui/material/styles";
-import AddDogForm from "./components/AddDog/AddDogForm.jsx";
-import { GetDogPhoto } from "./components/DogProfile/GetDogPhoto";
-import { LoginRegister } from "./components/LoginPage/LoginRegister";
+// import { GetDogPhoto } from "./components/DogProfile/GetDogPhoto";
+// import { LoginRegister } from "./components/LoginPage/LoginRegister";
 import Slider from "./components/Slider/Slider";
+import { AddDogForm } from "./components/AddDog/AddDogForm";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <ResponsiveAppBar />
-        <LoginRegister />
+        <AddDogForm />
         <Routes>
           <Route path="/" element={<Slider />} />
           <Route
