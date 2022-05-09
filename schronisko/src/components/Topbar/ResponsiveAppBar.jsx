@@ -17,7 +17,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../db";
 
 const links = [
-  ["Home", "/"],
+  // ["Home", "/"],
   ["Strona główna", "/"],
   ["Psiaki do adpocji", "/psy"],
   ["Wolontariat", "/wolontariat"],
