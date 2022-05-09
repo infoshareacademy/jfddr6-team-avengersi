@@ -2,8 +2,9 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
-import { Footer } from "./Footer";
+
 import ImageListItem from "@mui/material/ImageListItem";
+import DonationImg from "./donationBox.jpeg";
 
 export function Footer() {
   return (
@@ -57,17 +58,19 @@ export function Footer() {
               </Box>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Box borderBottom={1}>Donate us!</Box>
+              <Box alignItems="end">Donate us!</Box>
               <Box>
-                <ImageListItem
-                  key={donationBox.jpeg}
-                  cols={item.cols || 1}
-                  rows={item.rows || 1}
-                ></ImageListItem>
-
-                {/* <a href="https://www.paypal.com/donate/?hosted_button_id=P8GCJVPGGBQ4Y" color="primary.contrastText">
-                 <img src={/Footer/donationBox.jpeg} alt={french bulldog carries donate box}/>
-                </a> */}
+                <a
+                  href="https://www.paypal.com/donate/?hosted_button_id=P8GCJVPGGBQ4Y"
+                  color="primary.contrastText"
+                >
+                  <img
+                    width="100"
+                    height="100"
+                    src={DonationImg}
+                    alt="french bulldog carries donate box"
+                  />
+                </a>
               </Box>
             </Grid>
           </Grid>
