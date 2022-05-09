@@ -26,7 +26,6 @@ const AgeWeight = () => {
 
   // const age = dog.age?.toDate();
   // const age = moment(dog.age.toDate()).fromNow();
-  console.log(typeof dog.age);
 
   return (
     <div className={styles.main}>
@@ -37,7 +36,7 @@ const AgeWeight = () => {
         {/* <Typography variant="h6">{dog.dateOfBirth}</Typography> */}
         <Typography variant="h6">Waga: {dog.weight} kg</Typography>
         <Typography variant="h6">
-          {dog.age} {dog.age < 1 ? "rok" : "lat"}
+          Wiek: {dog.age} {dog.age < 1 ? "rok" : "lat"}
         </Typography>
       </div>
     </div>
