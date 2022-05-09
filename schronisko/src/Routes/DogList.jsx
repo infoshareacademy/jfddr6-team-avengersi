@@ -1,5 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { GetDogPhoto } from "../components/DogProfile/GetDogPhoto";
 import { db } from "../db";
 
 export const DogList = () => {
@@ -35,5 +36,10 @@ export const DogList = () => {
       </div>
     ));
 
-  return <>{renderDogs()}</>;
+  return (
+    <>
+      {renderDogs()}
+      <GetDogPhoto />
+    </>
+  );
 };
