@@ -1,0 +1,13 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+.icon {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+
