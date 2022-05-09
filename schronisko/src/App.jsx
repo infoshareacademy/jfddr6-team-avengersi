@@ -7,12 +7,14 @@ import { theme } from "./themes/Themes";
 import { ThemeProvider } from "@mui/material/styles";
 import AddDogForm from "./components/AddDog/AddDogForm.jsx";
 import { GetDogPhoto } from "./components/DogProfile/GetDogPhoto";
+import { LoginRegister } from "./components/LoginPage/LoginRegister";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <ResponsiveAppBar />
+        <LoginRegister />
         <Routes>
           <Route path="/" element={<div>Strona główna</div>} />
           <Route
