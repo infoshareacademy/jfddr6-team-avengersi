@@ -8,6 +8,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import AddDogForm from "./components/AddDog/AddDogForm.jsx";
 import { GetDogPhoto } from "./components/DogProfile/GetDogPhoto";
 import { LoginRegister } from "./components/LoginPage/LoginRegister";
+import Slider from "./components/Slider/Slider";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <ResponsiveAppBar />
         <LoginRegister />
         <Routes>
-          <Route path="/" element={<div>Strona główna</div>} />
+          <Route path="/" element={<Slider />} />
           <Route
             path="/wolontariat"
             element={<div>Panel Wolontariusza logowanie i rejestracja</div>}
@@ -30,6 +31,7 @@ function App() {
             element={<div>Strona konkretnego psa dla wolontariusza</div>}
           />
         </Routes>
+
         <Footer />
       </BrowserRouter>
     </ThemeProvider>
