@@ -1,4 +1,3 @@
-import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,8 +12,9 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
-import { signOut } from "firebase/auth";
 import { auth } from "../../db";
+import { useState } from "react";
+import { signOut } from "firebase/auth";
 
 const links = [
   ["Strona główna", "/"],
@@ -22,13 +22,11 @@ const links = [
   ["Wolontariat", "/wolontariat"],
 ];
 
-// const pages = ["Strona główna", "Psiaki do adopcji", "Wolontariat"];
-// const links = ["/", "/psy", "/wolontariat"];
 const settings = ["Wyloguj"];
 
-const ResponsiveAppBar = ({ user }) => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+const ResponsiveAppBar = () => {
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -45,12 +43,19 @@ const ResponsiveAppBar = ({ user }) => {
     setAnchorElUser(null);
   };
 
-  const handleLogOut = ({ user }) => {
+  const handleLogOut = () => {
     signOut(auth);
     console.log("wylogowano");
   };
   return (
-    <AppBar position="static">
+    <AppBar
+      sx={{
+        background:
+          "linear-gradient(49deg, rgba(92,219,194,1) 0%, rgba(17,143,118,0.2805497198879552) 50%, rgba(213,103,219,1) 100%)",
+        boxShadow: "0px 0px 71px -12px rgba(89, 105, 101, 1)",
+      }}
+      position="static"
+    >
       <Container maxWidth="100vw">
         <Toolbar disableGutters>
           <Typography

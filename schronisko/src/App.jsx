@@ -2,27 +2,21 @@ import "./App.css";
 import { Footer } from "./components/Footer/Footer";
 import ResponsiveAppBar from "./components/Topbar/ResponsiveAppBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import * as React from "react";
 import { theme } from "./themes/Themes";
-import { AddDogForm } from "./components/AddDog/AddDogForm.jsx";
 import { ThemeProvider } from "@mui/material/styles";
+import { Home } from "./Routes/Home";
+import { DogList } from "./Routes/DogList";
+import { Dashboard } from "./Routes/Dashboard";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <ResponsiveAppBar />
-        <AddDogForm />
         <Routes>
-          <Route path="/" element={<div>Strona główna</div>} />
-          <Route
-            path="/wolontariat"
-            element={<div>Panel Wolontariusza logowanie i rejestracja</div>}
-          />
-          <Route
-            path="/psy"
-            element={<div>Lista psów dla wolonatriusza</div>}
-          />
+          <Route path="/" element={<Home />} />
+          <Route path="/wolontariat" element={<Dashboard />} />
+          <Route path="/psy" element={<DogList />} />
           <Route
             path="/psy/:id"
             element={<div>Strona konkretnego psa dla wolontariusza</div>}
