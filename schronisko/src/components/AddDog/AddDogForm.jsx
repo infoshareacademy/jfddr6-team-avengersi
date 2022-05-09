@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 
 export const AddDogForm = () => {
   const [isRequired, setIsRequired] = useState(true);
+  console.log(isRequired);
 
   const [formState, setFormState] = useState({
     name: "",
@@ -98,7 +99,7 @@ export const AddDogForm = () => {
   };
 
   const handleRequired = () => {
-    isRequired ? setIsRequired(false) : setIsRequired(true);
+    !isRequired ? setIsRequired(true) : setIsRequired(false);
   };
   useEffect(() => {
     handleRequired();
@@ -122,120 +123,6 @@ export const AddDogForm = () => {
       alignItems="center"
     >
       {isRequired ? (
-        <>
-          <TextField
-            color="secondary"
-            type="text"
-            value={formState.name}
-            onChange={(e) =>
-              setFormState({ ...formState, name: e.target.value })
-            }
-            id="outlined-basic"
-            label="Imię"
-            variant="outlined"
-            size="small"
-            required
-          />
-          <TextField
-            color="secondary"
-            type="text"
-            value={formState.breed}
-            onChange={(e) =>
-              setFormState({ ...formState, breed: e.target.value })
-            }
-            id="outlined-basic"
-            label="Rasa"
-            variant="outlined"
-            size="small"
-            required
-          />
-          <FormControl
-            color="secondary"
-            sx={{ m: 1, minWidth: 120 }}
-            size="small"
-          >
-            <InputLabel color="secondary" id="demo-select-small">
-              Płeć
-            </InputLabel>
-            <Select
-              required
-              labelId="demo-simple-select-label"
-              variant="outlined"
-              id="outlined-basic"
-              defaultValue={"male"}
-              value={formState.sex}
-              label="Płeć"
-              onChange={(e) =>
-                setFormState({ ...formState, sex: e.target.value })
-              }
-            >
-              <MenuItem value={"male"}>pies</MenuItem>
-              <MenuItem value={"female"}>suczka</MenuItem>
-            </Select>
-          </FormControl>
-          <TextField
-            color="secondary"
-            type="string"
-            value={formState.dateOfBirth}
-            onChange={(e) =>
-              setFormState({ ...formState, dateOfBirth: e.target.value })
-            }
-            id="outlined-basic"
-            label="Data urodzenia"
-            variant="outlined"
-            size="small"
-            required
-          />
-          <TextField
-            color="secondary"
-            type="string"
-            value={formState.rabiesVaccination}
-            onChange={(e) =>
-              setFormState({ ...formState, rabiesVaccination: e.target.value })
-            }
-            id="outlined-basic"
-            label="Wścieklizna"
-            variant="outlined"
-            size="small"
-            required
-          />
-          <TextField
-            color="secondary"
-            type="number"
-            value={formState.weight}
-            onChange={(e) =>
-              setFormState({ ...formState, weight: e.target.value })
-            }
-            id="outlined-basic"
-            label="Waga kg"
-            variant="outlined"
-            size="small"
-            required
-          />
-          <TextField
-            color="secondary"
-            type="number"
-            value={formState.box}
-            onChange={(e) =>
-              setFormState({ ...formState, box: e.target.value })
-            }
-            id="outlined-basic"
-            label="Numer boksu"
-            variant="outlined"
-            size="small"
-            required
-          />
-          <Button
-            color="secondary"
-            variant="outlined"
-            onClick={(e) => {
-              handleRequired();
-            }}
-          >
-            DALEJ
-          </Button>
-        </>
-      ) : (
         <>
           <TextField
             color="secondary"
@@ -350,6 +237,121 @@ export const AddDogForm = () => {
             onClick={handleSubmit}
           >
             DODAJ PSIAKA
+          </Button>
+        </>
+      ) : (
+        <>
+          {" "}
+          <TextField
+            color="secondary"
+            type="text"
+            value={formState.name}
+            onChange={(e) =>
+              setFormState({ ...formState, name: e.target.value })
+            }
+            id="outlined-basic"
+            label="Imię"
+            variant="outlined"
+            size="small"
+            required
+          />
+          <TextField
+            color="secondary"
+            type="text"
+            value={formState.breed}
+            onChange={(e) =>
+              setFormState({ ...formState, breed: e.target.value })
+            }
+            id="outlined-basic"
+            label="Rasa"
+            variant="outlined"
+            size="small"
+            required
+          />
+          <FormControl
+            color="secondary"
+            sx={{ m: 1, minWidth: 120 }}
+            size="small"
+          >
+            <InputLabel color="secondary" id="demo-select-small">
+              Płeć
+            </InputLabel>
+            <Select
+              required
+              labelId="demo-simple-select-label"
+              variant="outlined"
+              id="outlined-basic"
+              defaultValue={"male"}
+              value={formState.sex}
+              label="Płeć"
+              onChange={(e) =>
+                setFormState({ ...formState, sex: e.target.value })
+              }
+            >
+              <MenuItem value={"male"}>pies</MenuItem>
+              <MenuItem value={"female"}>suczka</MenuItem>
+            </Select>
+          </FormControl>
+          <TextField
+            color="secondary"
+            type="string"
+            value={formState.dateOfBirth}
+            onChange={(e) =>
+              setFormState({ ...formState, dateOfBirth: e.target.value })
+            }
+            id="outlined-basic"
+            label="Data urodzenia"
+            variant="outlined"
+            size="small"
+            required
+          />
+          <TextField
+            color="secondary"
+            type="string"
+            value={formState.rabiesVaccination}
+            onChange={(e) =>
+              setFormState({ ...formState, rabiesVaccination: e.target.value })
+            }
+            id="outlined-basic"
+            label="Wścieklizna"
+            variant="outlined"
+            size="small"
+            required
+          />
+          <TextField
+            color="secondary"
+            type="number"
+            value={formState.weight}
+            onChange={(e) =>
+              setFormState({ ...formState, weight: e.target.value })
+            }
+            id="outlined-basic"
+            label="Waga kg"
+            variant="outlined"
+            size="small"
+            required
+          />
+          <TextField
+            color="secondary"
+            type="number"
+            value={formState.box}
+            onChange={(e) =>
+              setFormState({ ...formState, box: e.target.value })
+            }
+            id="outlined-basic"
+            label="Numer boksu"
+            variant="outlined"
+            size="small"
+            required
+          />
+          <Button
+            color="secondary"
+            variant="outlined"
+            onClick={(e) => {
+              handleRequired();
+            }}
+          >
+            DALEJ
           </Button>
         </>
       )}
