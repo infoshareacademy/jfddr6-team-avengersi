@@ -12,8 +12,8 @@ export function Footer() {
       <Box
         px={{ xs: 1, sm: 3, md: 4 }}
         py={{ xs: 1, sm: 3, md: 4 }}
-        bgcolor="primary.dark"
-        color="#f73378"
+        bgcolor="text.primary"
+        color="primary.light"
       >
         <Container>
           <Grid container spacing={5}>
@@ -58,19 +58,22 @@ export function Footer() {
               </Box>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Box alignItems="end">Donate us!</Box>
+              <Box alignSelf="center">Donate us!</Box>
               <Box>
-                <a
-                  href="https://www.paypal.com/donate/?hosted_button_id=P8GCJVPGGBQ4Y"
-                  color="primary.contrastText"
-                >
-                  <img
-                    width="100"
-                    height="100"
-                    src={DonationImg}
-                    alt="french bulldog carries donate box"
-                  />
-                </a>
+                <div>
+                  <a
+                    href="https://www.paypal.com/donate/?hosted_button_id=P8GCJVPGGBQ4Y"
+                    color="primary.contrastText"
+                  >
+                    <img
+                      style={{ borderRadius: "20px" }}
+                      width="100"
+                      height="100"
+                      src={DonationImg}
+                      alt="french bulldog carries donate box"
+                    />
+                  </a>
+                </div>
               </Box>
             </Grid>
           </Grid>
