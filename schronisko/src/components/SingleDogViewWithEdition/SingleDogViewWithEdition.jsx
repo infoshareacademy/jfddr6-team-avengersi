@@ -1,5 +1,5 @@
 import IconNameBreed from "../IconNameBreed/IconNameBreed";
-import Box from "../Box/Box";
+import BoxNumber from "../Box/Box";
 import AgeWeight from "../AgeWeight/AgeWeight";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -7,15 +7,19 @@ import ButtonFeeding from "../Buttons/ButtonFeeding";
 import ButtonWalk from "../Buttons/ButtonWalk";
 import ButtonCleaning from "../Buttons/ButtonCleaning";
 import ButtonPills from "../Buttons/ButtonPills";
-import { GetDogPhoto } from "../DogProfile/GetDogPhoto";
+import { GetDogPhotoOnlyUrl } from "../DogProfile/GetDogPhotoOnlyUrl";
 import ButtonRabies from "../Buttons/ButtonRabies";
 import Container from "@mui/material/Container";
 import WalksHistory from "../DogProfile/WalksHistory";
+import Description from "../Description/Description";
 
 const SingleDogViewWithEdition = () => {
   const styles = {
-    paperImageContainer: {},
+    paperImageContainer: {
+      backgroundImage: `HERE: url(${(<GetDogPhotoOnlyUrl />)})`,
+    },
   };
+
   return (
     <>
       <Container sx={{ marginTop: "20px" }}>
@@ -31,13 +35,17 @@ const SingleDogViewWithEdition = () => {
             </Paper>
           </Grid>
           <Grid item xs={12}>
-            <Paper style={styles.paperImageContainer}>
-              <GetDogPhoto />
+            <Paper
+              style={{
+                backgroundImage: `url(${{ GetDogPhotoOnlyUrl }})`,
+              }}
+            >
+              <GetDogPhotoOnlyUrl />
             </Paper>
           </Grid>
           <Grid item xs={12}>
             <Paper>
-              <Box />
+              <BoxNumber />
             </Paper>
           </Grid>
         </Grid>
@@ -45,7 +53,12 @@ const SingleDogViewWithEdition = () => {
         <Grid
           container
           spacing={2}
-          sx={{ marginTop: "20px", justifyContent: "center" }}
+          sx={{
+            marginTop: "20px",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "20px",
+          }}
         >
           <Grid item xs={12} sm={6} md={2}>
             <ButtonFeeding />
@@ -60,11 +73,12 @@ const SingleDogViewWithEdition = () => {
           <Grid item xs={12} sm={6} md={2}>
             <ButtonPills />
           </Grid>
-          <Grid item xs={12} sm={6} md={2}>
+          <Grid item xs={12} sm={12} md={2}>
             <ButtonRabies />
           </Grid>
         </Grid>
       </Container>
+      <Description />
     </>
   );
 };
