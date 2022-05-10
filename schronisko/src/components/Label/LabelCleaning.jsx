@@ -2,10 +2,10 @@ import { Button } from "@mui/material";
 import { doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../db";
-import VaccinesIcon from "@mui/icons-material/Vaccines";
+import CleaningServicesIcon from "@mui/icons-material/TransferWithinAStation";
 import moment from "moment";
 
-const ButtonRabies = () => {
+const LabelCleaning = () => {
   const [dog, setDog] = useState([]);
 
   const id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f"; //props
@@ -14,7 +14,7 @@ const ButtonRabies = () => {
     const docRef = doc(db, "dogs", id);
     onSnapshot(docRef, (doc) => {
       const oneDog = {
-        rabies: moment(doc.data().rabiesVaccTest.toDate()).fromNow(),
+        walk: moment(doc.data().cleaningTest.toDate()).fromNow(),
       };
       setDog(oneDog);
     });
@@ -22,11 +22,15 @@ const ButtonRabies = () => {
 
   return (
     <>
-      <Button variant="outlined" startIcon={<VaccinesIcon />} size="large">
-        {dog.rabies}
+      <Button
+        variant="outlined"
+        startIcon={<CleaningServicesIcon />}
+        size="large"
+      >
+        {dog.walk}
       </Button>
     </>
   );
 };
 
-export default ButtonRabies;
+export default LabelCleaning;
