@@ -4,10 +4,10 @@ import { Container } from "@mui/material";
 import { TextField, Box } from "@mui/material";
 import { useState } from "react";
 import { db } from "../../db";
-import { updateDoc, doc, collection } from "firebase/firestore";
+import { updateDoc, doc, collection, arrayUnion } from "firebase/firestore";
 
 const dog = {
-  id: "25f6188c-1f41-4894-81a2-ecf376ec0b9f",
+  id: "d6a027ba-3de2-4e66-82ba-d5fff99ccbad",
   comment: "",
 };
 
@@ -21,7 +21,7 @@ export default function AddComment() {
 
   const submitComment = React.useCallback(async () => {
     const result = await updateDoc(doc(db, "dogs", dog.id), {
-      commentValue,
+      arrayComment: arrayUnion(commentValue),
     });
 
     console.log(result);
@@ -34,7 +34,6 @@ export default function AddComment() {
     (e) => {
       e.preventDefault();
       submitComment();
-      console.log("Ania");
     },
     [submitComment]
   );
