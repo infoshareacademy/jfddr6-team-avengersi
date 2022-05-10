@@ -110,7 +110,7 @@ const SingleDogView = () => {
           <Grid item xs={16} sm={3}>
             <Item
               sx={{
-                padding: "0",
+                paddingBottom: "10px",
               }}
               elevation={0}
             >
