@@ -6,6 +6,7 @@ import * as React from "react";
 import { theme } from "./themes/Themes";
 import { ThemeProvider } from "@mui/material/styles";
 import Slider from "./components/Slider/Slider";
+import { AddDogForm } from "./components/AddDog/AddDogForm";
 
 function App() {
   return (
