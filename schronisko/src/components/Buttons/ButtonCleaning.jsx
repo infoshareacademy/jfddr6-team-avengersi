@@ -13,7 +13,7 @@ const ButtonCleaning = () => {
 
   const [dog, setDog] = useState([]);
 
-  const id = "0839429b-a4e0-4481-9783-8696974a37d0"; //props
+  const id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f"; //props
 
   useEffect(() => {
     const docRef = doc(db, "dogs", id);
@@ -59,7 +59,7 @@ const ButtonCleaning = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTime();
+    // addTime();
   };
 
   return (
