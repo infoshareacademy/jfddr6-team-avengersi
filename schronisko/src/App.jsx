@@ -13,8 +13,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <ResponsiveAppBar />
+        <AddDogForm />
         <Routes>
-          <Route path="/" element={<Slider />} />
+          <Route path="/" element={<div></div>} />
           <Route
             path="/wolontariat"
             element={<div>Panel Wolontariusza logowanie i rejestracja</div>}
