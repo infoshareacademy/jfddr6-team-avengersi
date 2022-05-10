@@ -17,7 +17,6 @@ const IconNameBreed = () => {
         breed: doc.data().breed,
       };
       setDog(oneDog);
-      console.log(dog.name);
     });
   }, []);
 
