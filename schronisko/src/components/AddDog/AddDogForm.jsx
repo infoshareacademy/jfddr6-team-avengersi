@@ -16,11 +16,11 @@ import {
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import { ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../db";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Popover from "@mui/material/Popover";
 
 export const AddDogForm = () => {
-  const [isRequired, setIsRequired] = useState(true);
+  const [isRequired, setIsRequired] = useState(false);
 
   const [formState, setFormState] = useState({
     name: "",
@@ -100,26 +100,25 @@ export const AddDogForm = () => {
   };
 
   const handleRequired = (e) => {
-    if (
-      !isRequired &&
-      formState.name.trim() &&
-      formState.breed.trim() &&
-      formState.sex.trim() &&
-      formState.dateOfBirth.trim() &&
-      formState.rabiesVaccination.trim() &&
-      formState.weight.trim() &&
-      formState.box.trim()
-    ) {
+    const requiredKeys = [
+      "name",
+      "breed",
+      "sex",
+      "dateOfBirth",
+      "rabiesVaccination",
+      "weight",
+      "box",
+    ];
+    const isValid = Object.entries(formState)
+      .filter(([key, _]) => requiredKeys.includes(key))
+      .every(([_, value]) => value.trim());
+    if (!isRequired && isValid) {
       setIsRequired(true);
     } else {
       setIsRequired(false);
-      console.log(e);
+      setAnchorEl(e);
     }
   };
-
-  useEffect(() => {
-    handleRequired();
-  }, []);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClose = () => {
@@ -134,8 +133,8 @@ export const AddDogForm = () => {
         component="div"
         sx={{
           padding: "10px",
-          width: "100vw",
-          height: "100vh",
+          width: "95vw",
+          height: "95vh",
           marginTop: "20px",
         }}
       >
@@ -403,7 +402,7 @@ export const AddDogForm = () => {
                 color="secondary"
                 variant="outlined"
                 onClick={(e) => {
-                  handleRequired(e);
+                  handleRequired(e.target);
                 }}
               >
                 DALEJ
@@ -418,9 +417,7 @@ export const AddDogForm = () => {
                   horizontal: "left",
                 }}
               >
-                <Typography sx={{ p: 2 }}>
-                  The content of the Popover.
-                </Typography>
+                <Typography sx={{ p: 2 }}>Wypełnij wszystkie pola</Typography>
               </Popover>
             </>
           )}
