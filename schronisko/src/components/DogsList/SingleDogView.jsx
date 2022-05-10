@@ -87,11 +87,11 @@ import LabelPills from "../Label/LabelPills";
 import LabelCleaning from "../Label/LabelCleaning";
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: "#fff",
+  backgroundColor: "#f6f7fa",
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: "center",
-  color: "#C97D8F",
+  color: "#82009f",
   fontFamily: "Roboto, Helvetica, Arial,sans-serif",
 }));
 
@@ -99,14 +99,15 @@ const SingleDogView = () => {
   return (
     <Container
       sx={{
-        width: "100wv",
-        backgroundColor: "#fff",
-        margin: "10px",
+        width: "100vw",
+        backgroundColor: "#f6f7fa",
+        borderBottom: "solid #82009f 2px",
+        marginTop: "10px",
       }}
     >
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={0} columns={9}>
-          <Grid item xs={9} sm={2}>
+        <Grid container spacing={0} columns={16}>
+          <Grid item xs={16} sm={3}>
             <Item
               sx={{
                 padding: "0",
@@ -116,7 +117,7 @@ const SingleDogView = () => {
               <GetDogPhoto />
             </Item>
           </Grid>
-          <Grid item xs={9} sm={1}>
+          <Grid item xs={16} sm={3}>
             <Item
               sx={{
                 padding: "0",
@@ -124,39 +125,45 @@ const SingleDogView = () => {
               elevation={0}
             >
               <IconNameBreed />
+              <BoxNumber />
             </Item>
           </Grid>
-          <Grid item xs={9} sm={1}>
+          {/* <Grid item xs={16} sm={2}>
             <Item
               sx={{
                 padding: "0",
               }}
               elevation={0}
             >
-              <BoxNumber />
-            </Item>
-          </Grid>
-          <Grid item xs={9} sm={1}>
+             
+            </Item> */}
+          {/* </Grid> */}
+          <Grid item xs={16} sm={10}>
             <Item
               sx={{
                 padding: "0",
+                marginTop: "80px",
               }}
               elevation={0}
             >
               <LabelFeeding />
+              <LabelWalk />
+              <LabelPills />
+              <LabelCleaning />
             </Item>
           </Grid>
-          <Grid item xs={9} sm={1}>
+          {/* <Grid item xs={16} sm={2}>
             <Item
               sx={{
                 padding: "0",
+                margin: "0",
               }}
               elevation={0}
             >
               <LabelWalk />
             </Item>
           </Grid>
-          <Grid item xs={9} sm={1}>
+          <Grid item xs={16} sm={2}>
             <Item
               sx={{
                 padding: "0",
@@ -166,7 +173,7 @@ const SingleDogView = () => {
               <LabelPills />
             </Item>
           </Grid>
-          <Grid item xs={9} sm={1}>
+          <Grid item xs={16} sm={2}>
             <Item
               sx={{
                 padding: "0",
@@ -175,7 +182,7 @@ const SingleDogView = () => {
             >
               <LabelCleaning />
             </Item>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Box>
     </Container>
