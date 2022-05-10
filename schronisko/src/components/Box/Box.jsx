@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { db } from "../../db";
 import styles from "./Box.module.css";
 
-const Box = () => {
+const BoxNumber = () => {
   const [dog, setDog] = useState([]);
 
   const id = "0839429b-a4e0-4481-9783-8696974a37d0"; //props
@@ -32,4 +32,4 @@ const Box = () => {
   );
 };
 
-export default Box;
+export default BoxNumber;
