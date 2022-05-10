@@ -8,7 +8,7 @@ import { updateDoc, doc, collection } from "firebase/firestore";
 
 const dog = {
   id: "25f6188c-1f41-4894-81a2-ecf376ec0b9f",
-  comment: "utykał na spacerze",
+  comment: "",
 };
 
 export default function AddComment() {
@@ -23,10 +23,6 @@ export default function AddComment() {
     const result = await updateDoc(doc(db, "dogs", dog.id), {
       commentValue,
     });
-
-    // const result = await updateDoc(
-    //   doc(db, "dogs", dog.id).collection("comments").add(commentValue)
-    // );
 
     console.log(result);
     setCommentValue(commentValue);
@@ -49,11 +45,6 @@ export default function AddComment() {
 
   return (
     <Container>
-      <Box>
-        <Button onClick={handleClickEdit}>
-          {editMode ? <>Stop Editing</> : <>Start Editing</>}
-        </Button>
-      </Box>
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <TextField
           label="Komentarz"
@@ -63,7 +54,6 @@ export default function AddComment() {
           multiline
           rows={7}
           value={commentValue}
-          disabled={!editMode}
           onChange={handleChangeComment}
         />
         <Box mt={1}>
