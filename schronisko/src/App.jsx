@@ -8,14 +8,13 @@ import { ThemeProvider } from "@mui/material/styles";
 // import { GetDogPhoto } from "./components/DogProfile/GetDogPhoto";
 // import { LoginRegister } from "./components/LoginPage/LoginRegister";
 import Slider from "./components/Slider/Slider";
-import { AddDogForm } from "./components/AddDog/AddDogForm";
+// import { AddDogForm } from "./components/AddDog/AddDogForm";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <ResponsiveAppBar />
-        <AddDogForm />
         <Routes>
           <Route path="/" element={<Slider />} />
           <Route

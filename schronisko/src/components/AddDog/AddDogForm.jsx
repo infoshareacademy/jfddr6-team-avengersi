@@ -11,6 +11,7 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  Typography,
 } from "@mui/material";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import { ref, uploadBytes } from "firebase/storage";
@@ -19,7 +20,7 @@ import { useEffect, useState } from "react";
 
 export const AddDogForm = () => {
   const [isRequired, setIsRequired] = useState(true);
-  console.log(isRequired);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const [formState, setFormState] = useState({
     name: "",
@@ -98,12 +99,29 @@ export const AddDogForm = () => {
     uploadPhotos();
   };
 
-  const handleRequired = () => {
-    !isRequired ? setIsRequired(true) : setIsRequired(false);
+  const handleRequired = (event) => {
+    if (
+      !isRequired &&
+      formState.name.trim() &&
+      formState.breed.trim() &&
+      formState.sex.trim() &&
+      formState.dateOfBirth.trim() &&
+      formState.rabiesVaccination.trim() &&
+      formState.weight.trim() &&
+      formState.box.trim()
+    ) {
+      setIsRequired(true);
+    } else {
+      setIsRequired(false);
+    }
   };
+
   useEffect(() => {
     handleRequired();
   }, []);
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <Box
