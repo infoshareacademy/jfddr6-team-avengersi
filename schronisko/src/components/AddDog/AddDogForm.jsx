@@ -99,7 +99,7 @@ export const AddDogForm = () => {
     uploadPhotos();
   };
 
-  const handleRequired = (event) => {
+  const handleRequired = () => {
     if (
       !isRequired &&
       formState.name.trim() &&
@@ -119,9 +119,6 @@ export const AddDogForm = () => {
   useEffect(() => {
     handleRequired();
   }, []);
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   return (
     <Box
@@ -365,7 +362,7 @@ export const AddDogForm = () => {
           <Button
             color="secondary"
             variant="outlined"
-            onClick={(e) => {
+            onClick={() => {
               handleRequired();
             }}
           >
