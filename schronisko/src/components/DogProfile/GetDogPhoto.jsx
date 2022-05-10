@@ -20,13 +20,20 @@ export const GetDogPhoto = () => {
       setImageList(urls);
     };
     loadImages();
-    console.log("odpalam galerie");
   }, [id]);
 
   return (
-    <div className="gallery">
+    <div
+      className="gallery"
+      style={{ maxHeight: "100%", height: "150px", width: "150px" }}
+    >
       {imageList.map((url) => (
-        <img key={url} alt="blogphoto" src={url} />
+        <img
+          key={url}
+          alt="blogphoto"
+          src={url}
+          style={{ width: "100%", height: "100%" }}
+        />
       ))}
     </div>
   );
