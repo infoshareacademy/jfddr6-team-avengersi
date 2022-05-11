@@ -3,7 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../db";
 import SingleDogView from "./SingleDogView";
 import AddIcon from "@mui/icons-material/Add";
-import { Button } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 function DogsList() {
@@ -33,14 +33,17 @@ function DogsList() {
 
   return (
     <>
-      <Button
-        variant="outlined"
-        startIcon={<AddIcon />}
-        size="large"
-        onClick={() => navigate("/addDog")}
-      >
-        Dodaj nowego psiaka
-      </Button>
+      <Container sx={{ mt: 1 }}>
+        <Button
+          variant="contained"
+          startIcon={<AddIcon />}
+          size="large"
+          onClick={() => navigate("/addDog")}
+          color="success"
+        >
+          Dodaj nowego psiaka
+        </Button>
+      </Container>
 
       {listOfDogs()}
     </>
