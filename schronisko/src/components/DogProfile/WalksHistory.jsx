@@ -10,6 +10,8 @@ import Divider from "@mui/material/Divider";
 
 function WalksHistory() {
   const [dogs, setDogs] = useState([]);
+  const [walksList, setWalksList] = useState([]);
+  let id = "0839429b-a4e0-4481-9783-8696974a37d0"; // propsy
 
   const GetDogs = async () => {
     const dogsCollection = collection(db, "dogs");
@@ -20,13 +22,13 @@ function WalksHistory() {
       data: doc.data(),
     }));
     setDogs(dogsData);
+
+    setWalksList(dogsData.filter((element) => element.id === id)[0].data.walks);
   };
 
   useEffect(() => {
     GetDogs();
   }, []);
-
-  const walksList = dogs.map((element) => element.data.walk)[0];
 
   return (
     <Box
