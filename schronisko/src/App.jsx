@@ -5,7 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import * as React from "react";
 import { theme } from "./themes/Themes";
 import { ThemeProvider } from "@mui/material/styles";
-import { Slider } from "@mui/material";
+import HomePage from "./routes/HomePage";
+import DogsList from "./components/DogsList/DogsList.jsx";
 
 function App() {
   return (
@@ -13,15 +14,12 @@ function App() {
       <BrowserRouter>
         <ResponsiveAppBar />
         <Routes>
-          <Route path="/" element={<Slider />} />
+          <Route path="/" element={<HomePage />} />
           <Route
             path="/wolontariat"
             element={<div>Panel Wolontariusza logowanie i rejestracja</div>}
           />
-          <Route
-            path="/psy"
-            element={<div>Lista psów dla wolonatriusza</div>}
-          />
+          <Route path="/psy" element={<DogsList />} />
           <Route
             path="/psy/:id"
             element={<div>Strona konkretnego psa dla wolontariusza</div>}
