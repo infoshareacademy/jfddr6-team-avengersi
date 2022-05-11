@@ -79,7 +79,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import IconNameBreed from "../IconNameBreed/IconNameBreed.jsx";
 import BoxNumber from "../Box/Box";
-import { GetDogPhoto } from "../DogProfile/GetDogPhoto";
+import { GetDogPhotoForList } from "../DogProfile/GetDogPhotoForList";
 import Container from "@mui/material/Container";
 import LabelFeeding from "../Label/LabelFeeding";
 import LabelWalk from "../Label/LabelWalk";
@@ -101,11 +101,10 @@ const SingleDogView = () => {
       sx={{
         width: "100vw",
         backgroundColor: "#f6f7fa",
-        borderBottom: "solid #82009f 2px",
         marginTop: "10px",
       }}
     >
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, boxShadow: 2 }}>
         <Grid container spacing={0} columns={16}>
           <Grid item xs={16} sm={3}>
             <Item
@@ -114,7 +113,7 @@ const SingleDogView = () => {
               }}
               elevation={0}
             >
-              <GetDogPhoto />
+              <GetDogPhotoForList />
             </Item>
           </Grid>
           <Grid item xs={16} sm={3}>

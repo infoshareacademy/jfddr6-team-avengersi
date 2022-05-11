@@ -6,6 +6,7 @@ import * as React from "react";
 import { theme } from "./themes/Themes";
 import { ThemeProvider } from "@mui/material/styles";
 import HomePage from "./routes/HomePage";
+import DogsList from "./components/DogsList/DogsList.jsx";
 
 function App() {
   return (
@@ -18,10 +19,7 @@ function App() {
             path="/wolontariat"
             element={<div>Panel Wolontariusza logowanie i rejestracja</div>}
           />
-          <Route
-            path="/psy"
-            element={<div>Lista psów dla wolonatriusza</div>}
-          />
+          <Route path="/psy" element={<DogsList />} />
           <Route
             path="/psy/:id"
             element={<div>Strona konkretnego psa dla wolontariusza</div>}

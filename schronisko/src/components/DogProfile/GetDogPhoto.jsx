@@ -25,7 +25,7 @@ export const GetDogPhoto = () => {
   return (
     <div
       className="gallery"
-      style={{ maxHeight: "100%", height: "200px", width: "200px" }}
+      // style={{ maxHeight: "100%", height: "200px", width: "200px" }}
     >
       {imageList.map((url) => (
         <img

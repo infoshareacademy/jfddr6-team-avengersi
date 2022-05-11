@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { storage } from "../../db";
 import { Paper } from "@mui/material";
 
-export const GetDogPhotoOnlyUrl = () => {
+export const GetDogPhotoForList = () => {
   const [imageList, setImageList] = useState([]);
   let id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f/";
   useEffect(() => {
@@ -21,8 +21,6 @@ export const GetDogPhotoOnlyUrl = () => {
       setImageList(urls);
     };
     loadImages();
-    console.log("odpalam galerie");
-    console.log(imageList[0]);
   }, [id]);
 
   return (
@@ -33,7 +31,7 @@ export const GetDogPhotoOnlyUrl = () => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          height: "400px",
+          height: "200px",
         }}
       ></Paper>
     </>
