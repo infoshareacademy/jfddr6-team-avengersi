@@ -1,77 +1,3 @@
-// import * as React from "react";
-// import { styled } from "@mui/material/styles";
-// import Box from "@mui/material/Box";
-// import Paper from "@mui/material/Paper";
-// import IconNameBreed from "../IconNameBreed/IconNameBreed.jsx";
-// import BoxNumber from "../Box/Box";
-// import { GetDogPhoto } from "../DogProfile/GetDogPhoto";
-
-// const Item = styled(Paper)(({ theme }) => ({
-//   backgroundColor: "#fff",
-//   ...theme.typography.body2,
-//   padding: theme.spacing(1),
-//   textAlign: "center",
-//   color: "#C97D8F",
-//   fontFamily: "Roboto, Helvetica, Arial,sans-serif",
-// }));
-
-// export default function SingleDogView() {
-//   return (
-//     <Box
-//       sx={{
-//         width: 0.8,
-//         backgroundColor: "#fff",
-//       }}
-//     >
-//       <Box
-//         sx={{
-//           display: "grid",
-//           gridAutoFlow: "row",
-//           gridTemplateColumns: "repeat(13, 1fr)",
-//           gridTemplateRows: "repeat(4, 1fr)",
-//           padding: "5px",
-//           gap: 1,
-//         }}
-//       >
-//         <Item
-//           sx={{
-//             gridColumn: "1/4",
-//             gridRow: "1 /5",
-//             padding: "0",
-//           }}
-//           elevation={0}
-//         >
-//           <GetDogPhoto />
-//         </Item>
-
-//         <Item sx={{ gridColumn: "4/6", gridRow: "1/3" }} elevation={0}>
-//           <IconNameBreed />
-//         </Item>
-
-// <Item sx={{ gridColumn: "4/6", gridRow: "3/5" }} elevation={0}>
-//   <BoxNumber />
-// </Item>
-
-// <Item sx={{ gridColumn: "6/8", gridRow: "2/4" }} elevation={0}>
-//   food
-// </Item>
-
-//         <Item sx={{ gridColumn: "8/10", gridRow: "2/4" }} elevation={0}>
-//           walk
-//         </Item>
-
-//         <Item sx={{ gridColumn: "10/12", gridRow: "2/4" }} elevation={0}>
-//           pills
-//         </Item>
-
-//         <Item sx={{ gridColumn: "12/14", gridRow: "2/4" }} elevation={0}>
-//           cleaning
-//         </Item>
-//       </Box>
-//     </Box>
-//   );
-// }
-
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -127,19 +53,11 @@ const SingleDogView = () => {
               <BoxNumber />
             </Item>
           </Grid>
-          {/* <Grid item xs={16} sm={2}>
-            <Item
-              sx={{
-                padding: "0",
-              }}
-              elevation={0}
-            >
-             
-            </Item> */}
-          {/* </Grid> */}
           <Grid item xs={8} sm={4} md={10}>
             <Item
               sx={{
+                display: "flex",
+                justifyContent: "space-evenly",
                 padding: "0",
                 marginTop: "80px",
               }}
@@ -151,37 +69,6 @@ const SingleDogView = () => {
               <LabelCleaning />
             </Item>
           </Grid>
-          {/* <Grid item xs={16} sm={2}>
-            <Item
-              sx={{
-                padding: "0",
-                margin: "0",
-              }}
-              elevation={0}
-            >
-              <LabelWalk />
-            </Item>
-          </Grid>
-          <Grid item xs={16} sm={2}>
-            <Item
-              sx={{
-                padding: "0",
-              }}
-              elevation={0}
-            >
-              <LabelPills />
-            </Item>
-          </Grid>
-          <Grid item xs={16} sm={2}>
-            <Item
-              sx={{
-                padding: "0",
-              }}
-              elevation={0}
-            >
-              <LabelCleaning />
-            </Item>
-          </Grid> */}
         </Grid>
       </Box>
     </Container>
