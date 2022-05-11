@@ -24,9 +24,7 @@ export function Footer() {
               alignItems="center"
             >
               <Grid item xs={12} sm={4}>
-                <Box borderBottom={1}>
-                  Aplikacja stworzona przez Avengers Team
-                </Box>
+                <Box>Aplikacja stworzona przez Avengers Team</Box>
                 <Box>
                   <img
                     src={GitHubImg}
@@ -88,23 +86,21 @@ export function Footer() {
                   </Link>
                 </Box>
               </Grid>
-              <Grid item xs={12} sm={4} justifySelf="end">
-                <Box alignSelf="center">Wpłać darowiznę</Box>
-                <Box>
-                  <div>
-                    <a
-                      href="https://www.paypal.com/donate/?hosted_button_id=P8GCJVPGGBQ4Y"
-                      color="primary.contrastText"
-                    >
-                      <img
-                        style={{ borderRadius: "20px" }}
-                        width="100"
-                        height="100"
-                        src={DonationImg}
-                        alt="french bulldog carries donate box"
-                      />
-                    </a>
-                  </div>
+              <Grid item justifySelf="end">
+                <Box display="flex" flexDirection="column" alignItems="center">
+                  <Typography variant="body2">Wpłać darowiznę </Typography>
+                  <a
+                    href="https://www.paypal.com/donate/?hosted_button_id=P8GCJVPGGBQ4Y"
+                    color="primary.contrastText"
+                  >
+                    <img
+                      style={{ borderRadius: "20px" }}
+                      width="90"
+                      height="90"
+                      src={DonationImg}
+                      alt="french bulldog carries donate box"
+                    />
+                  </a>
                 </Box>
               </Grid>
             </Grid>
