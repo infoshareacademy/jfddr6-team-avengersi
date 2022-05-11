@@ -64,6 +64,7 @@ const ButtonRabies = () => {
         startIcon={<VaccinesIcon />}
         size="large"
         onClick={handleOpen}
+        fullWidth
       >
         {dog.rabiesVaccination}
       </Button>

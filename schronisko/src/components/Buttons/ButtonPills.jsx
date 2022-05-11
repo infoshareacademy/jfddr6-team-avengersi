@@ -64,6 +64,7 @@ const ButtonPills = () => {
         startIcon={<LocalHospitalIcon />}
         size="large"
         onClick={handleOpen}
+        fullWidth
       >
         {dog.pills}
       </Button>

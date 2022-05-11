@@ -10,7 +10,7 @@ function SliderContent({ activeIndex, sliderImage }) {
           key={index}
           className={index === activeIndex ? "slides active" : "inactive"}
         >
-          <SlideTwo />
+          <SlideOne />
           <SlideTwo />
         </div>
       ))}

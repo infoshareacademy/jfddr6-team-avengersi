@@ -65,6 +65,7 @@ const ButtonCleaning = () => {
         startIcon={<CleaningServicesIcon />}
         size="large"
         onClick={handleOpen}
+        fullWidth
       >
         {dog.cleaning}
       </Button>
