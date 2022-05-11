@@ -12,6 +12,7 @@ import { DogList } from "./Routes/DogList";
 import { Home } from "./Routes/Home";
 import { Dashboard } from "./Routes/Dashboard";
 import moment from "moment";
+import pl from "moment/locale/pl";
 
 function App() {
   moment.locale("pl");
