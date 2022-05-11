@@ -42,11 +42,11 @@ export const AddDogForm = () => {
   const addDog = async () => {
     const name = formState.name;
     const breed = formState.breed;
-    const dateOfBirth = formState.dateOfBirth;
+    const dateOfBirth = new Date(formState.dateOfBirth).getTime();
     const weight = formState.weight;
     const box = formState.box;
-    const pills = formState.pills;
-    const rabiesVaccination = formState.rabiesVaccination;
+    const pills = new Date(formState.pills).getTime();
+    const rabiesVaccination = new Date(formState.rabiesVaccination).getTime();
     const sex = formState.sex;
     const description = formState.description;
     const comment = formState.comment;
@@ -168,15 +168,21 @@ export const AddDogForm = () => {
               </Box>
               <TextField
                 color="secondary"
-                type="text"
+                id="date"
+                label="Leki"
+                type="date"
+                variant="outlined"
                 value={formState.pills}
                 onChange={(e) =>
-                  setFormState({ ...formState, pills: e.target.value })
+                  setFormState({
+                    ...formState,
+                    pills: e.target.value,
+                  })
                 }
-                id="outlined-basic"
-                label="Leki"
-                variant="outlined"
-                size="small"
+                sx={{ width: 330 }}
+                InputLabelProps={{
+                  shrink: true,
+                }}
               />
               <TextField
                 color="secondary"
@@ -208,12 +214,6 @@ export const AddDogForm = () => {
               />
               <FormControlLabel
                 label="Kastracja"
-                sx={{
-                  "& .MuiFormControlLabel-label": {
-                    fontFamily: "Ubuntu, sans-serif",
-                    fontWeight: "400",
-                  },
-                }}
                 control={
                   <Checkbox
                     color="secondary"
@@ -229,12 +229,6 @@ export const AddDogForm = () => {
               />
               <FormControlLabel
                 label="Adoptowany"
-                sx={{
-                  "& .MuiFormControlLabel-label": {
-                    fontFamily: "Ubuntu, sans-serif",
-                    fontWeight: "400",
-                  },
-                }}
                 control={
                   <Checkbox
                     color="secondary"
@@ -344,20 +338,25 @@ export const AddDogForm = () => {
               </FormControl>
               <TextField
                 color="secondary"
-                type="string"
+                id="date"
+                label="Data urodzenia"
+                type="date"
+                variant="outlined"
                 value={formState.dateOfBirth}
                 onChange={(e) =>
                   setFormState({ ...formState, dateOfBirth: e.target.value })
                 }
-                id="outlined-basic"
-                label="Data urodzenia"
-                variant="outlined"
-                size="small"
-                required
+                sx={{ width: 330 }}
+                InputLabelProps={{
+                  shrink: true,
+                }}
               />
               <TextField
                 color="secondary"
-                type="string"
+                id="date"
+                label="Data szczepienia p/wściekliźnie"
+                type="date"
+                variant="outlined"
                 value={formState.rabiesVaccination}
                 onChange={(e) =>
                   setFormState({
@@ -365,11 +364,10 @@ export const AddDogForm = () => {
                     rabiesVaccination: e.target.value,
                   })
                 }
-                id="outlined-basic"
-                label="Wścieklizna"
-                variant="outlined"
-                size="small"
-                required
+                sx={{ width: 330 }}
+                InputLabelProps={{
+                  shrink: true,
+                }}
               />
               <TextField
                 color="secondary"
