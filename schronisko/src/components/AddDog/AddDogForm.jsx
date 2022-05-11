@@ -18,8 +18,10 @@ import { ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../db";
 import { useState } from "react";
 import Popover from "@mui/material/Popover";
+import { useNavigate } from "react-router-dom";
 
 export const AddDogForm = () => {
+  const navigate = useNavigate();
   const [isRequired, setIsRequired] = useState(false);
 
   const [formState, setFormState] = useState({
@@ -97,6 +99,7 @@ export const AddDogForm = () => {
     e.preventDefault();
     addDog();
     uploadPhotos();
+    navigate("/psy");
   };
 
   const handleRequired = (e) => {

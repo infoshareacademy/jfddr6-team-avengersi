@@ -5,17 +5,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import * as React from "react";
 import { theme } from "./themes/Themes";
 import { ThemeProvider } from "@mui/material/styles";
-import HomePage from "./routes/HomePage";
-import { AddDogForm } from "./components/AddDog/AddDogForm";
+import { Slider } from "@mui/material";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <ResponsiveAppBar />
-        <AddDogForm />
         <Routes>
-          <Route path="/" element={<div></div>} />
+          <Route path="/" element={<Slider />} />
           <Route
             path="/wolontariat"
             element={<div>Panel Wolontariusza logowanie i rejestracja</div>}
