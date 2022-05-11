@@ -1,5 +1,6 @@
 import React from "react";
-import HomePage from "../../routes/HomePage";
+import SlideOne from "./Sliders/SildeOne";
+import SlideTwo from "./Sliders/SildeTwo";
 
 function SliderContent({ activeIndex, sliderImage }) {
   return (
@@ -9,8 +10,8 @@ function SliderContent({ activeIndex, sliderImage }) {
           key={index}
           className={index === activeIndex ? "slides active" : "inactive"}
         >
-          <HomePage />
-          <HomePage />
+          <SlideTwo />
+          <SlideTwo />
         </div>
       ))}
     </section>

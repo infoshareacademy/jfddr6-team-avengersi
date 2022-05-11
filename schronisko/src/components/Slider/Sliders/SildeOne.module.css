@@ -1,9 +1,6 @@
-body {
-    background-color: #363D54;
-    font-family: 'Montserrat';
-}
-
 .main {
+    font-family: 'Montserrat';
+    background-color: #363D54;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -22,6 +19,7 @@ h2 {
     color: white;
     font-size: 60px;
     line-height: 70px;
+    margin: 50px 0px;
 }
 
 h4 {
@@ -29,6 +27,7 @@ h4 {
     font-size: 20px;
     line-height: 30px;
     font-weight: 400;
+    margin-bottom: 10px;
 }
 
 .images {
@@ -105,7 +104,7 @@ h4 {
 
 .imageOne {
     position: relative;
-    background: url("../images/small/karsten-winegeart-BJaqPaH6AGQ-unsplash.jpg") no-repeat  center;
+    background: url("../../../images/small/karsten-winegeart-BJaqPaH6AGQ-unsplash.jpg") no-repeat  center;
     background-size: cover;
     border-radius: 80px 80px 0 0;
     z-index: 5;
@@ -118,7 +117,7 @@ h4 {
 /* Orange DOG */
 .imageTwo { 
     position: relative;
-    background: url("../images/small/alvan-nee-brFsZ7qszSY-unsplash.jpg") no-repeat  center;
+    background: url("../../../images/small/alvan-nee-brFsZ7qszSY-unsplash.jpg") no-repeat  center;
     background-size: cover;
     border-radius: 0 0 80px 80px;
     z-index: 5;
@@ -130,7 +129,7 @@ h4 {
 /* Yellow DOG */
 .imageThree {
     position: relative;
-    background: url("../images/small/karsten-winegeart-Qb7D1xw28Co-unsplash.jpg") no-repeat  center;
+    background: url("../../../images/small/karsten-winegeart-Qb7D1xw28Co-unsplash.jpg") no-repeat  center;
     background-size: cover;
     border-radius: 80px 80px 0 0;
     z-index: 5;
@@ -142,11 +141,11 @@ h4 {
 /* Blue DOG */
 .imageFour {
     position: relative;
-    background: url("../images/small/karsten-winegeart-oU6KZTXhuvk-unsplash.jpg") no-repeat  center;
+    background: url("../../../images/small/karsten-winegeart-oU6KZTXhuvk-unsplash.jpg") no-repeat  center;
     background-size: cover;
     border-radius: 0 0 80px 80px;
     z-index: 5;
-    animation: slide-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-top 2.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     top: -400px;
     right: -100px;
 }
@@ -156,6 +155,7 @@ h4 {
     justify-content: space-between;
     position: relative;
     box-sizing: border-box;
+    align-items: center;
     margin-top: 150px;
     z-index: 30;
     padding: 20px 60px;

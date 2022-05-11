@@ -13,8 +13,11 @@ const LabelPills = () => {
   useEffect(() => {
     const docRef = doc(db, "dogs", id);
     onSnapshot(docRef, (doc) => {
+      const timeStamp = doc.data().pills;
+      const date = new Date(timeStamp);
+
       const oneDog = {
-        pills: moment(doc.data().pillsTest.toDate()).fromNow(),
+        pills: moment(date).fromNow(),
       };
       setDog(oneDog);
     });
