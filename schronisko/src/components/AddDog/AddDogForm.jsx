@@ -1,8 +1,5 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "../../themes/Themes";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../../db";
 import { v4 as uuidv4 } from "uuid";
@@ -14,37 +11,49 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  Typography,
 } from "@mui/material";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import { ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../db";
 import { useState } from "react";
+import Popover from "@mui/material/Popover";
+import { useNavigate } from "react-router-dom";
 
-export default function AddDogForm() {
-  const [nameValue, setNameValue] = useState("");
-  const [breedValue, setBreedValue] = useState("");
-  const [dateOfBirthValue, setDateOfBirthValue] = useState("");
-  const [weightValue, setWeightValue] = useState("");
-  const [boxValue, setBoxValue] = useState("");
-  const [pillsValue, setPillsValue] = useState("");
-  const [rabiesVaccinationValue, setRabiesVaccinationValue] = useState("");
-  const [sexValue, setSexValue] = useState("");
-  const [isFixed, setIsFixed] = useState(true);
-  const [isAdopted, setIsAdopted] = useState(true);
+export const AddDogForm = () => {
+  const navigate = useNavigate();
+  const [isRequired, setIsRequired] = useState(false);
+
+  const [formState, setFormState] = useState({
+    name: "",
+    breed: "",
+    dateOfBirth: "",
+    weight: "",
+    box: "",
+    pills: "",
+    rabiesVaccination: "",
+    description: "",
+    comment: "",
+    sex: "",
+    fixed: true,
+    adopted: true,
+  });
 
   const dogId = uuidv4();
 
   const addDog = async () => {
-    const name = nameValue;
-    const breed = breedValue;
-    const dateOfBirth = dateOfBirthValue;
-    const weight = weightValue;
-    const box = boxValue;
-    const pills = pillsValue;
-    const rabiesVaccination = rabiesVaccinationValue;
-    const sex = sexValue;
-    const fixed = isFixed;
-    const adopted = isAdopted;
+    const name = formState.name;
+    const breed = formState.breed;
+    const dateOfBirth = new Date(formState.dateOfBirth).getTime();
+    const weight = formState.weight;
+    const box = formState.box;
+    const pills = new Date(formState.pills).getTime();
+    const rabiesVaccination = new Date(formState.rabiesVaccination).getTime();
+    const sex = formState.sex;
+    const description = formState.description;
+    const comment = formState.comment;
+    const fixed = formState.fixed;
+    const adopted = formState.adopted;
 
     await setDoc(doc(db, "dogs", dogId), {
       name,
@@ -57,16 +66,24 @@ export default function AddDogForm() {
       sex,
       fixed,
       adopted,
+      description,
+      comment,
     });
 
-    setNameValue("");
-    setBreedValue("");
-    setDateOfBirthValue("");
-    setWeightValue("");
-    setBoxValue("");
-    setPillsValue("");
-    setRabiesVaccinationValue("");
-    setSexValue("");
+    setFormState({
+      name: "",
+      breed: "",
+      dateOfBirth: "",
+      weight: "",
+      box: "",
+      pills: "",
+      rabiesVaccination: "",
+      sex: "",
+      fixed: "",
+      adopted: "",
+      description: "",
+      comment: "",
+    });
     console.log("dog added");
   };
 
@@ -81,154 +98,332 @@ export default function AddDogForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     addDog();
+    navigate("/dogs");
     uploadPhotos();
   };
 
+  const handleRequired = (e) => {
+    const requiredKeys = [
+      "name",
+      "breed",
+      "sex",
+      "dateOfBirth",
+      "rabiesVaccination",
+      "weight",
+      "box",
+    ];
+    const isValid = Object.entries(formState)
+      .filter(([key, _]) => requiredKeys.includes(key))
+      .every(([_, value]) => value.trim());
+    if (!isRequired && isValid) {
+      setIsRequired(true);
+    } else {
+      setIsRequired(false);
+      setAnchorEl(e);
+    }
+  };
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Box
-        component="form"
+        component="div"
         sx={{
-          "& > :not(style)": {
-            m: 1,
-            width: "35ch",
-            boxShadow: 2,
-            fontFamily: "Roboto, Helvetica, Arial,sans-serif",
-          },
+          padding: "10px",
+          width: "95vw",
+          height: "95vh",
+          marginTop: "20px",
         }}
-        noValidate
-        autoComplete="off"
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        onSubmit={handleSubmit}
       >
-        <TextField
-          type="text"
-          value={nameValue}
-          onChange={(e) => setNameValue(e.target.value)}
-          id="outlined-basic"
-          label="Imię"
-          variant="outlined"
-          size="small"
-        />
-        <TextField
-          type="text"
-          value={breedValue}
-          onChange={(e) => setBreedValue(e.target.value)}
-          id="outlined-basic"
-          label="Rasa"
-          variant="outlined"
-          size="small"
-        />{" "}
-        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-          <InputLabel id="demo-select-small">Płeć</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            variant="outlined"
-            id="outlined-basic"
-            value={sexValue}
-            label="Płeć"
-            onChange={(e) => setSexValue(e.target.value)}
-          >
-            <MenuItem value={"male"}>pies</MenuItem>
-            <MenuItem value={"female"}>suczka</MenuItem>
-          </Select>
-        </FormControl>
-        <TextField
-          type="string"
-          value={dateOfBirthValue}
-          onChange={(e) => setDateOfBirthValue(e.target.value)}
-          id="outlined-basic"
-          label="Data urodzenia"
-          variant="outlined"
-          size="small"
-        />
-        <TextField
-          type="number"
-          value={weightValue}
-          onChange={(e) => setWeightValue(e.target.value)}
-          id="outlined-basic"
-          label="Waga kg"
-          variant="outlined"
-          size="small"
-        />
-        <TextField
-          type="number"
-          value={boxValue}
-          onChange={(e) => setBoxValue(e.target.value)}
-          id="outlined-basic"
-          label="Numer boksu"
-          variant="outlined"
-          size="small"
-        />
-        <TextField
-          type="text"
-          value={pillsValue}
-          onChange={(e) => setPillsValue(e.target.value)}
-          id="outlined-basic"
-          label="Leki"
-          variant="outlined"
-          size="small"
-        />
-        <TextField
-          type="string"
-          value={rabiesVaccinationValue}
-          onChange={(e) => setRabiesVaccinationValue(e.target.value)}
-          id="outlined-basic"
-          label="Wścieklizna"
-          variant="outlined"
-          size="small"
-        />
-        <FormControlLabel
-          label="Kastracja"
+        <Box
+          component="form"
           sx={{
-            "& .MuiFormControlLabel-label": {
+            "& > :not(style)": {
+              m: 1,
+              width: "35ch",
+              boxShadow: 2,
               fontFamily: "Roboto, Helvetica, Arial,sans-serif",
-              fontWeight: "500",
             },
           }}
-          control={
-            <Checkbox
-              defaultChecked
-              onChange={(e) => setIsFixed(e.target.checked ? true : false)}
-            />
-          }
-        />
-        <FormControlLabel
-          label="Adoptowany"
-          sx={{
-            "& .MuiFormControlLabel-label": {
-              fontFamily: "Roboto, Helvetica, Arial,sans-serif",
-              fontWeight: "500",
-            },
-          }}
-          control={
-            <Checkbox
-              defaultChecked
-              onChange={(e) => setIsAdopted(e.target.checked ? true : false)}
-            />
-          }
-        />
-        <Button
-          variant="outlined"
-          component="label"
-          startIcon={<AddAPhotoIcon />}
+          noValidate
+          autoComplete="off"
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
         >
-          <input
-            type="file"
-            accept="image/png, image/jpeg"
-            hidden
-            onChange={(e) => {
-              setImageUpload(e.target.files[0]);
-            }}
-          />
-          Dodaj zdjęcie
-        </Button>
-        <Button variant="text" type="submit">
-          DODAJ PSIAKA
-        </Button>
+          {isRequired ? (
+            <>
+              {" "}
+              <Box sx={{ boxShadow: 0 }}>
+                <Typography
+                  component="p"
+                  variant="h6"
+                  sx={{ textAlign: "center" }}
+                >
+                  Krok 2 z 2
+                </Typography>
+              </Box>
+              <TextField
+                color="secondary"
+                id="date"
+                label="Leki"
+                type="date"
+                variant="outlined"
+                value={formState.pills}
+                onChange={(e) =>
+                  setFormState({
+                    ...formState,
+                    pills: e.target.value,
+                  })
+                }
+                sx={{ width: 330 }}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+              <TextField
+                color="secondary"
+                type="text"
+                value={formState.description}
+                onChange={(e) =>
+                  setFormState({ ...formState, description: e.target.value })
+                }
+                id="outlined-basic"
+                label="Opis"
+                variant="outlined"
+                size="small"
+                multiline
+                rows={5}
+              />
+              <TextField
+                color="secondary"
+                type="text"
+                value={formState.comment}
+                onChange={(e) =>
+                  setFormState({ ...formState, comment: e.target.value })
+                }
+                id="outlined-basic"
+                label="Komentarz"
+                variant="outlined"
+                size="small"
+                multiline
+                rows={5}
+              />
+              <FormControlLabel
+                label="Kastracja"
+                control={
+                  <Checkbox
+                    color="secondary"
+                    defaultChecked
+                    onChange={(e) =>
+                      setFormState({
+                        ...formState,
+                        fixed: e.target.checked ? true : false,
+                      })
+                    }
+                  />
+                }
+              />
+              <FormControlLabel
+                label="Adoptowany"
+                control={
+                  <Checkbox
+                    color="secondary"
+                    defaultChecked
+                    onChange={(e) =>
+                      setFormState({
+                        ...formState,
+                        adopted: e.target.checked ? true : false,
+                      })
+                    }
+                  />
+                }
+              />
+              <Button
+                color="secondary"
+                component="label"
+                startIcon={<AddAPhotoIcon />}
+              >
+                <input
+                  type="file"
+                  accept="image/png, image/jpeg"
+                  hidden
+                  onChange={(e) => {
+                    setImageUpload(e.target.files[0]);
+                  }}
+                />
+                Dodaj zdjęcie
+              </Button>
+              <Button
+                color="secondary"
+                variant="outlined"
+                onClick={(e) => {
+                  handleRequired();
+                }}
+              >
+                WRÓĆ
+              </Button>
+              <Button
+                color="secondary"
+                variant="outlined"
+                type="submit"
+                onClick={handleSubmit}
+              >
+                DODAJ PSIAKA
+              </Button>
+            </>
+          ) : (
+            <>
+              <Box>
+                <Typography
+                  component="p"
+                  variant="h6"
+                  sx={{ textAlign: "center" }}
+                >
+                  Krok 1 z 2
+                </Typography>
+              </Box>
+              <TextField
+                color="secondary"
+                type="text"
+                value={formState.name}
+                onChange={(e) =>
+                  setFormState({ ...formState, name: e.target.value })
+                }
+                id="outlined-basic"
+                label="Imię"
+                variant="outlined"
+                size="small"
+                required
+              />
+              <TextField
+                color="secondary"
+                type="text"
+                value={formState.breed}
+                onChange={(e) =>
+                  setFormState({ ...formState, breed: e.target.value })
+                }
+                id="outlined-basic"
+                label="Rasa"
+                variant="outlined"
+                size="small"
+                required
+              />
+              <FormControl
+                color="secondary"
+                sx={{ m: 1, minWidth: 120 }}
+                size="small"
+              >
+                <InputLabel color="secondary" id="demo-select-small">
+                  Płeć
+                </InputLabel>
+                <Select
+                  required
+                  labelId="demo-simple-select-label"
+                  variant="outlined"
+                  id="outlined-basic"
+                  defaultValue={"male"}
+                  value={formState.sex}
+                  label="Płeć"
+                  onChange={(e) =>
+                    setFormState({ ...formState, sex: e.target.value })
+                  }
+                >
+                  <MenuItem value={"male"}>pies</MenuItem>
+                  <MenuItem value={"female"}>suczka</MenuItem>
+                </Select>
+              </FormControl>
+              <TextField
+                color="secondary"
+                id="date"
+                label="Data urodzenia"
+                type="date"
+                variant="outlined"
+                value={formState.dateOfBirth}
+                onChange={(e) =>
+                  setFormState({ ...formState, dateOfBirth: e.target.value })
+                }
+                sx={{ width: 330 }}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+              <TextField
+                color="secondary"
+                id="date"
+                label="Data szczepienia p/wściekliźnie"
+                type="date"
+                variant="outlined"
+                value={formState.rabiesVaccination}
+                onChange={(e) =>
+                  setFormState({
+                    ...formState,
+                    rabiesVaccination: e.target.value,
+                  })
+                }
+                sx={{ width: 330 }}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+              <TextField
+                color="secondary"
+                type="number"
+                value={formState.weight}
+                onChange={(e) =>
+                  setFormState({ ...formState, weight: e.target.value })
+                }
+                id="outlined-basic"
+                label="Waga kg"
+                variant="outlined"
+                size="small"
+                required
+              />
+              <TextField
+                color="secondary"
+                type="number"
+                value={formState.box}
+                onChange={(e) =>
+                  setFormState({ ...formState, box: e.target.value })
+                }
+                id="outlined-basic"
+                label="Numer boksu"
+                variant="outlined"
+                size="small"
+                required
+              />
+              <Button
+                aria-describedby={id}
+                color="secondary"
+                variant="outlined"
+                onClick={(e) => {
+                  handleRequired(e.target);
+                }}
+              >
+                DALEJ
+              </Button>
+              <Popover
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+              >
+                <Typography sx={{ p: 2 }}>Wypełnij wszystkie pola</Typography>
+              </Popover>
+            </>
+          )}
+        </Box>
       </Box>
-    </ThemeProvider>
+    </>
   );
-}
+};

@@ -7,11 +7,11 @@ import { db } from "../../db";
 import { updateDoc, doc, arrayUnion } from "firebase/firestore";
 
 const dog = {
-  id: "d6a027ba-3de2-4e66-82ba-d5fff99ccbad",
+  // id: "d6a027ba-3de2-4e66-82ba-d5fff99ccbad",
   comment: "",
 };
 
-export default function AddComment() {
+export default function AddComment({ id }) {
   const [commentValue, setCommentValue] = useState(dog.comment);
 
   const submitComment = React.useCallback(async () => {
@@ -47,8 +47,9 @@ export default function AddComment() {
           rows={7}
           value={commentValue}
           onChange={handleChangeComment}
+          sx={{ mb: 1 }}
         />
-        <Box mt={1}>
+        <Box>
           <Button variant="contained" color="primary" type="submit">
             Ok
           </Button>
