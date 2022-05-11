@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../db";
 import * as React from "react";
 import Box from "@mui/material/Box";
@@ -9,23 +9,19 @@ import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 
 function ListOfComments() {
-  const [dogs, setDogs] = useState([]);
   const [commentList, setCommentList] = useState([]);
   let id = "d6a027ba-3de2-4e66-82ba-d5fff99ccbad"; // propsy
 
   const GetDogs = async () => {
-    const dogsCollection = collection(db, "dogs");
-    const dogsDocuments = await getDocs(dogsCollection);
+    const docReferrence = doc(db, "dogs", id);
+    const dogDocument = await getDoc(docReferrence);
 
-    const dogsData = dogsDocuments.docs.map((doc) => ({
-      id: doc.id,
-      data: doc.data(),
-    }));
-    setDogs(dogsData);
+    const dogData = {
+      id: dogDocument.id,
+      comments: dogDocument.data().comments,
+    };
 
-    setCommentList(
-      dogsData.filter((element) => element.id === id)[0].data.arrayComment
-    );
+    setCommentList(dogData.comments.slice(-3).reverse());
   };
 
   useEffect(() => {
@@ -43,10 +39,11 @@ function ListOfComments() {
     >
       <nav>
         <List>
-          {commentList.map((arrayComment) => {
+          {commentList.map((comment) => {
             return (
-              <ListItem disablePadding key={arrayComment}>
-                <ListItemText primary={arrayComment} />
+              <ListItem disablePadding key={comment.date}>
+                <ListItemText primary={new Date(comment.date).getFullYear()} />
+                <ListItemText primary={comment.comment} />
                 <Divider />
               </ListItem>
             );
