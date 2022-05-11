@@ -5,10 +5,10 @@ import { db } from "../../db";
 import TransferWithinAStationIcon from "@mui/icons-material/TransferWithinAStation";
 import moment from "moment";
 
-const ButtonWalk = () => {
+const ButtonWalk = ({ id }) => {
   const [dog, setDog] = useState([]);
 
-  const id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f"; //props
+  // const id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f"; //props
 
   //pobieranie danych:
 

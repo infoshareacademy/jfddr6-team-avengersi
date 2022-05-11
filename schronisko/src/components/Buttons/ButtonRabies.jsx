@@ -5,10 +5,10 @@ import { db } from "../../db";
 import VaccinesIcon from "@mui/icons-material/Vaccines";
 import moment from "moment";
 
-const ButtonRabies = () => {
+const ButtonRabies = ({ id }) => {
   const [dog, setDog] = useState([]);
 
-  const id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f"; //props
+  // const id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f"; //props
 
   //pobieranie danych:
 

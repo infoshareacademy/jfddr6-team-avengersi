@@ -6,10 +6,10 @@ import CleaningServicesIcon from "@mui/icons-material/CleaningServices";
 import moment from "moment";
 import { Box } from "@mui/system";
 
-const ButtonCleaning = () => {
+const ButtonCleaning = ({ id }) => {
   const [dog, setDog] = useState([]);
 
-  const id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f"; //props
+  // const id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f"; //props
 
   //pobieranie danych:
 

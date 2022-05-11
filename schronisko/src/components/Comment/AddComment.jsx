@@ -7,11 +7,11 @@ import { db } from "../../db";
 import { updateDoc, doc, collection, arrayUnion } from "firebase/firestore";
 
 const dog = {
-  id: "d6a027ba-3de2-4e66-82ba-d5fff99ccbad",
+  // id: "d6a027ba-3de2-4e66-82ba-d5fff99ccbad",
   comment: "",
 };
 
-export default function AddComment() {
+export default function AddComment({ id }) {
   const [commentValue, setCommentValue] = useState(dog.comment);
   const [editMode, setEditMode] = useState(false);
 
@@ -20,7 +20,7 @@ export default function AddComment() {
   }, []);
 
   const submitComment = React.useCallback(async () => {
-    const result = await updateDoc(doc(db, "dogs", dog.id), {
+    const result = await updateDoc(doc(db, "dogs", id), {
       arrayComment: arrayUnion(commentValue),
     });
 
