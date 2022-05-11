@@ -106,7 +106,7 @@ const SingleDogView = () => {
     >
       <Box sx={{ flexGrow: 1, boxShadow: 2 }}>
         <Grid container spacing={0} columns={16}>
-          <Grid item xs={16} sm={3}>
+          <Grid item xs={16} sm={8} md={3}>
             <Item
               sx={{
                 paddingBottom: "10px",
@@ -116,7 +116,7 @@ const SingleDogView = () => {
               <GetDogPhotoForList />
             </Item>
           </Grid>
-          <Grid item xs={16} sm={3}>
+          <Grid item xs={8} sm={4} md={3}>
             <Item
               sx={{
                 padding: "0",
@@ -137,7 +137,7 @@ const SingleDogView = () => {
              
             </Item> */}
           {/* </Grid> */}
-          <Grid item xs={16} sm={10}>
+          <Grid item xs={8} sm={4} md={10}>
             <Item
               sx={{
                 padding: "0",
