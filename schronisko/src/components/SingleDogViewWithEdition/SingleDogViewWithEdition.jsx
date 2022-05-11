@@ -12,6 +12,14 @@ import ButtonRabies from "../Buttons/ButtonRabies";
 import Container from "@mui/material/Container";
 import WalksHistory from "../DogProfile/WalksHistory";
 import Description from "../Description/Description";
+import styles from "./SingleDogViewWithEdition.module.css";
+import AdoptedChkbx from "../../components/Checkboxes/AdoptedChkbx";
+import CastratedChkbx from "../../components/Checkboxes/CastrartedChkbx";
+import Comment from "../../components/Comment/AddComment";
+import LabelWalk from "../Label/LabelWalk";
+import LabelFeeding from "../Label/LabelFeeding";
+import LabelPills from "../Label/LabelPills";
+import LabelCleaning from "../Label/LabelCleaning";
 
 const SingleDogViewWithEdition = () => {
   const styles = {
@@ -25,6 +33,11 @@ const SingleDogViewWithEdition = () => {
       <Container sx={{ marginTop: "20px" }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
+            <GetDogPhotoOnlyUrl />
+          </Grid>
+        </Grid>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
             <Paper>
               <IconNameBreed />
             </Paper>
@@ -35,20 +48,12 @@ const SingleDogViewWithEdition = () => {
             </Paper>
           </Grid>
           <Grid item xs={12}>
-            <Paper
-              style={{
-                backgroundImage: `url(${{ GetDogPhotoOnlyUrl }})`,
-              }}
-            >
-              <GetDogPhotoOnlyUrl />
-            </Paper>
-          </Grid>
-          <Grid item xs={12}>
             <Paper>
               <BoxNumber />
             </Paper>
           </Grid>
         </Grid>
+        {/* </Grid> */}
 
         <Grid
           container
@@ -77,8 +82,28 @@ const SingleDogViewWithEdition = () => {
             <ButtonRabies />
           </Grid>
         </Grid>
+
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            marginTop: "20px",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Grid item xs={12} sm={10} md={5}>
+            <Comment />
+          </Grid>
+          <Grid item xs={12} sm={10} md={5}>
+            <Description />
+          </Grid>
+          <Grid item xs={12} sm={2} md={2}>
+            <CastratedChkbx />
+            <AdoptedChkbx />
+          </Grid>
+        </Grid>
       </Container>
-      <Description />
     </>
   );
 };

@@ -1,3 +1,4 @@
+import { Paper } from "@mui/material";
 import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { storage } from "../../db";
@@ -24,5 +25,17 @@ export const GetDogPhotoOnlyUrl = () => {
     console.log(imageList[0]);
   }, [id]);
 
-  return imageList[0];
+  return (
+    <>
+      <Paper
+        style={{
+          backgroundImage: `url(${imageList[0]})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          height: "400px",
+        }}
+      ></Paper>
+    </>
+  );
 };

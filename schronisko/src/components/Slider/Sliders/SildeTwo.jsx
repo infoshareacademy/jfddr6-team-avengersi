@@ -1,10 +1,10 @@
-import styles from "./HomePage.module.css";
+import styles from "./SildeTwo.module.css";
 
-const HomePage = () => {
+const SlideOne = () => {
   return (
     <div className={styles.main}>
-      <div className={styles.content}>
-        <h2>Nie bądź obojętny...{"\n"}Zaadoptuj Mnie! 🐶</h2>
+      <article className={styles.content}>
+        <h2>Zostań wolontariuszem! </h2>
         <h4>
           Poznaj nasze wszystkie Zwierzaki! Dzięki formularzowi kontaktowemu
           dowiesz się wiecej o każdym z nich.
@@ -14,36 +14,36 @@ const HomePage = () => {
           stanie fizycznym i psychicznym.
         </h4>
         <div className={styles.bar}>
-          <h3>Znajdź. Pokochaj. Zaadoptuj.</h3>
-          <button className={styles.button}>Zobacz zwierzaki</button>
+          <h3>Wypełnij formularz, dołącz do Nas!</h3>
+          <button className={styles.button}>Chcę pomóc!</button>
         </div>
-      </div>
+      </article>
       <div className={styles.images}>
-        <div className={styles.left}>
+        <aside className={styles.left}>
           <div
             className={`${styles.size} + ${styles.frameTopRoundedLeft}`}
           ></div>
-          <div className={`${styles.size} + ${styles.imageOne}`}></div>
+          <figure className={`${styles.size} + ${styles.imageOne}`}></figure>
           <div
             className={`${styles.size} + ${styles.frameBottomRoundedLeft}`}
           ></div>
-          <div className={`${styles.size} + ${styles.imageTwo}`}></div>
-        </div>
+          <figure className={`${styles.size} + ${styles.imageTwo}`}></figure>
+        </aside>
 
-        <div className={styles.right}>
+        <aside className={styles.right}>
           <div
             className={`${styles.size} + ${styles.frameTopRoundedRight}`}
           ></div>
-          <div className={`${styles.size} + ${styles.imageThree}`}></div>
+          <figure className={`${styles.size} + ${styles.imageThree}`}></figure>
           <div
             className={`${styles.size} + ${styles.frameBottomRoundedRight}`}
           ></div>
-          <div className={`${styles.size} + ${styles.imageFour}`}></div>
-        </div>
+          <figure className={`${styles.size} + ${styles.imageFour}`}></figure>
+        </aside>
       </div>
       <div className="navigation"></div>
     </div>
   );
 };
 
-export default HomePage;
+export default SlideOne;
