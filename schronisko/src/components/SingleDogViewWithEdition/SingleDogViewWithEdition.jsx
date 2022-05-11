@@ -17,6 +17,9 @@ import AdoptedChkbx from "../../components/Checkboxes/AdoptedChkbx";
 import CastratedChkbx from "../../components/Checkboxes/CastrartedChkbx";
 import Comment from "../../components/Comment/AddComment";
 import { useParams } from "react-router-dom";
+import { Button } from "@mui/material";
+
+import ButtonDelete from "../Buttons/ButtonDelete";
 
 const SingleDogViewWithEdition = () => {
   const params = useParams();
@@ -97,6 +100,21 @@ const SingleDogViewWithEdition = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={2} sx={{ textAlign: "center" }}>
             <AdoptedChkbx id={id} />
+          </Grid>
+        </Grid>
+
+        <Grid container spacing={2}>
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            sx={{
+              marginTop: "20px",
+              textAlign: "right",
+            }}
+          >
+            <ButtonDelete id={id} />
           </Grid>
         </Grid>
       </Container>
