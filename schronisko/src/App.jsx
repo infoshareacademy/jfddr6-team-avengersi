@@ -11,8 +11,11 @@ import SingleDogViewWithEdition from "./components/SingleDogViewWithEdition/Sing
 import { DogList } from "./Routes/DogList";
 import { Home } from "./Routes/Home";
 import { Dashboard } from "./Routes/Dashboard";
+import moment from "moment";
 
 function App() {
+  moment.locale("pl");
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
@@ -24,7 +27,6 @@ function App() {
           <Route path="/dog/:id" element={<SingleDogViewWithEdition />} />
           <Route path="/addDog" element={<AddDogForm />} />
         </Routes>
-
         <Footer />
       </BrowserRouter>
     </ThemeProvider>
