@@ -57,7 +57,8 @@ const SingleDogView = () => {
             <Item
               sx={{
                 padding: "0",
-                marginTop: "80px",
+                mt: "12%",
+                mb: "10%",
               }}
               elevation={0}
             >
