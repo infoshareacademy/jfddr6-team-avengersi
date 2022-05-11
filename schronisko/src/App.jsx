@@ -7,7 +7,6 @@ import { theme } from "./themes/Themes";
 import { ThemeProvider } from "@mui/material/styles";
 import HomePage from "./routes/HomePage";
 
-
 function App() {
   return (
     <ThemeProvider theme={theme}>
