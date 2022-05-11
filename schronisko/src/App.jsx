@@ -20,10 +20,7 @@ function App() {
             path="/wolontariat"
             element={<div>Panel Wolontariusza logowanie i rejestracja</div>}
           />
-          <Route
-            path="/psy"
-            element={<div>Lista psów dla wolonatriusza</div>}
-          />
+          <Route path="/psy" element={<DogsList />} />
           <Route
             path="/psy/:id"
             element={<div>Strona konkretnego psa dla wolontariusza</div>}
