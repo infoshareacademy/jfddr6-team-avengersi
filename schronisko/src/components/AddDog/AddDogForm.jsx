@@ -98,8 +98,8 @@ export const AddDogForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addDog();
+    navigate("/dogs");
     uploadPhotos();
-    navigate("/psy");
   };
 
   const handleRequired = (e) => {

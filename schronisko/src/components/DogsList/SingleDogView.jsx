@@ -64,10 +64,10 @@ const SingleDogView = ({ id }) => {
               }}
               elevation={0}
             >
-              <LabelFeeding />
-              <LabelWalk />
-              <LabelPills />
-              <LabelCleaning />
+              <LabelFeeding id={id} />
+              <LabelWalk id={id} />
+              <LabelPills id={id} />
+              <LabelCleaning id={id} />
             </Item>
           </Grid>
         </Grid>

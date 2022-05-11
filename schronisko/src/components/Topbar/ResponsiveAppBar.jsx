@@ -15,16 +15,19 @@ import Logo from "../Logo/Logo";
 import { auth } from "../../db";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const links = [
   ["Strona główna", "/"],
-  ["Psiaki do adpocji", "/psy"],
-  ["Wolontariat", "/wolontariat"],
+  ["Psiaki do adpocji", "/dogs"],
+  ["Wolontariat", "/dashboard"],
 ];
 
 const settings = ["Wyloguj"];
 
 const ResponsiveAppBar = () => {
+  const navigate = useNavigate();
+
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -46,6 +49,7 @@ const ResponsiveAppBar = () => {
   const handleLogOut = () => {
     signOut(auth);
     console.log("wylogowano");
+    navigate("/");
   };
   return (
     <AppBar position="static">

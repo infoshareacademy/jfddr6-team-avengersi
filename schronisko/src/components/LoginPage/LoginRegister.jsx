@@ -15,8 +15,11 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../../db";
+import { useNavigate } from "react-router-dom";
 
 export const LoginRegister = () => {
+  const navigate = useNavigate();
+
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
 
@@ -29,6 +32,7 @@ export const LoginRegister = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     loginUser(inputEmail, inputPassword);
+    navigate("/dogs");
   };
 
   const registerUser = async (email, password) => {
@@ -45,6 +49,7 @@ export const LoginRegister = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     registerUser(inputEmail, inputPassword);
+    navigate("/dogs");
   };
 
   const resetPassword = () => {
