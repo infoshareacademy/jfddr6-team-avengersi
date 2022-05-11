@@ -4,7 +4,7 @@ import { Container } from "@mui/material";
 import { TextField, Box } from "@mui/material";
 import { useState } from "react";
 import { db } from "../../db";
-import { updateDoc, doc, collection, arrayUnion } from "firebase/firestore";
+import { updateDoc, doc, arrayUnion } from "firebase/firestore";
 
 const dog = {
   // id: "d6a027ba-3de2-4e66-82ba-d5fff99ccbad",
@@ -13,21 +13,14 @@ const dog = {
 
 export default function AddComment({ id }) {
   const [commentValue, setCommentValue] = useState(dog.comment);
-  const [editMode, setEditMode] = useState(false);
-
-  const handleClickEdit = React.useCallback(() => {
-    setEditMode((prev) => !prev);
-  }, []);
 
   const submitComment = React.useCallback(async () => {
-    const result = await updateDoc(doc(db, "dogs", id), {
-      arrayComment: arrayUnion(commentValue),
+    const result = await updateDoc(doc(db, "dogs", dog.id), {
+      comments: arrayUnion({ comment: commentValue, date: Date.now() }),
     });
 
     console.log(result);
     setCommentValue(commentValue);
-
-    setEditMode(false);
   }, [commentValue]);
 
   const handleSubmit = React.useCallback(
