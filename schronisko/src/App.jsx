@@ -6,6 +6,7 @@ import * as React from "react";
 import { theme } from "./themes/Themes";
 import { ThemeProvider } from "@mui/material/styles";
 import { Slider } from "@mui/material";
+import { Dashboard } from "./Routes/Dashboard";
 
 function App() {
   return (
@@ -14,10 +15,7 @@ function App() {
         <ResponsiveAppBar />
         <Routes>
           <Route path="/" element={<Slider />} />
-          <Route
-            path="/wolontariat"
-            element={<div>Panel Wolontariusza logowanie i rejestracja</div>}
-          />
+          <Route path="/wolontariat" element={<Dashboard />} />
           <Route
             path="/psy"
             element={<div>Lista psów dla wolonatriusza</div>}
@@ -27,7 +25,6 @@ function App() {
             element={<div>Strona konkretnego psa dla wolontariusza</div>}
           />
         </Routes>
-
         <Footer />
       </BrowserRouter>
     </ThemeProvider>
