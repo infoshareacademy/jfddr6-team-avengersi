@@ -5,7 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import * as React from "react";
 import { theme } from "./themes/Themes";
 import { ThemeProvider } from "@mui/material/styles";
-import HomePage from "./routes/HomePage";
+import Slider from "./components/Slider/Slider";
+import { AddDogForm } from "./components/AddDog/AddDogForm";
+import SingleDogViewWithEdition from "./components/SingleDogViewWithEdition/SingleDogViewWithEdition";
 
 function App() {
   return (
@@ -13,7 +15,7 @@ function App() {
       <BrowserRouter>
         <ResponsiveAppBar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Slider />} />
           <Route
             path="/wolontariat"
             element={<div>Panel Wolontariusza logowanie i rejestracja</div>}
@@ -26,6 +28,8 @@ function App() {
             path="/psy/:id"
             element={<div>Strona konkretnego psa dla wolontariusza</div>}
           />
+          <Route path="/test" element={<SingleDogViewWithEdition />} />
+          <Route path="/addDog" element={<AddDogForm />} />
         </Routes>
 
         <Footer />

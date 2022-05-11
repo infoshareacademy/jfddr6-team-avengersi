@@ -55,8 +55,8 @@ export default function AddComment() {
           value={commentValue}
           onChange={handleChangeComment}
         />
-        <Box mt={1}>
-          <Button variant="contained" color="primary" type="submit">
+        <Box>
+          <Button variant="contained" color="primary" type="submit" sx={{}}>
             Ok
           </Button>
         </Box>
