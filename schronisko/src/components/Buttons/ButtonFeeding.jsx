@@ -5,10 +5,10 @@ import { db } from "../../db";
 import CookieIcon from "@mui/icons-material/Cookie";
 import moment from "moment";
 
-const ButtonFeeding = () => {
+const ButtonFeeding = ({ id }) => {
   const [dog, setDog] = useState([]);
 
-  const id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f"; //props
+  // const id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f"; //props
 
   //pobieranie danych:
 

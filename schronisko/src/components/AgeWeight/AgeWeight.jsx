@@ -6,10 +6,8 @@ import { db } from "../../db";
 import styles from "./AgeWeight.module.css";
 import moment from "moment";
 
-const AgeWeight = () => {
+const AgeWeight = ({ id }) => {
   const [dog, setDog] = useState({});
-
-  const id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f"; //props
 
   useEffect(() => {
     const docRef = doc(db, "dogs", id);

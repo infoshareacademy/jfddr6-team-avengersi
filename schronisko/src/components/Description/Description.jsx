@@ -7,11 +7,11 @@ import { db, auth } from "../../db";
 import { updateDoc, doc } from "firebase/firestore";
 
 const dogDescription = {
-  id: "25f6188c-1f41-4894-81a2-ecf376ec0b9f",
+  // id: "25f6188c-1f41-4894-81a2-ecf376ec0b9f",
   description: "",
 };
 
-export default function Description() {
+export default function Description({ id }) {
   const [dogsDescriptionValue, setDogsDescriptionValue] = useState(
     dogDescription.description
   );
@@ -24,7 +24,7 @@ export default function Description() {
   const editDescription = async () => {
     const dogsDescription = dogsDescriptionValue;
 
-    await updateDoc(doc(db, "dogs", dogDescription.id), {
+    await updateDoc(doc(db, "dogs", id), {
       dogsDescription,
     });
     setDogsDescriptionValue(dogsDescription);
