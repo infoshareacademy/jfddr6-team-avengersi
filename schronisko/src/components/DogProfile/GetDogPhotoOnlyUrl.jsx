@@ -1,3 +1,4 @@
+import { Paper } from "@mui/material";
 import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { storage } from "../../db";
