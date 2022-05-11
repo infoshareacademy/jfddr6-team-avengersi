@@ -11,6 +11,7 @@ import LabelFeeding from "../Label/LabelFeeding";
 import LabelWalk from "../Label/LabelWalk";
 import LabelPills from "../Label/LabelPills";
 import LabelCleaning from "../Label/LabelCleaning";
+import { Link } from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#f6f7fa",
@@ -21,7 +22,7 @@ const Item = styled(Paper)(({ theme }) => ({
   fontFamily: "Roboto, Helvetica, Arial,sans-serif",
 }));
 
-const SingleDogView = () => {
+const SingleDogView = ({ id }) => {
   return (
     <Container
       sx={{
@@ -39,7 +40,8 @@ const SingleDogView = () => {
               }}
               elevation={0}
             >
-              <GetDogPhotoForList />
+              <GetDogPhotoForList id={id} />
+              <Link to={`/dog/${id}`}>More info...</Link>
             </Item>
           </Grid>
           <Grid item xs={8} sm={4} md={3}>
@@ -49,8 +51,8 @@ const SingleDogView = () => {
               }}
               elevation={0}
             >
-              <IconNameBreed />
-              <BoxNumber />
+              <IconNameBreed id={id} />
+              <BoxNumber id={id} />
             </Item>
           </Grid>
           <Grid item xs={8} sm={4} md={10}>

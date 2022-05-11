@@ -16,32 +16,33 @@ import styles from "./SingleDogViewWithEdition.module.css";
 import AdoptedChkbx from "../../components/Checkboxes/AdoptedChkbx";
 import CastratedChkbx from "../../components/Checkboxes/CastrartedChkbx";
 import Comment from "../../components/Comment/AddComment";
+import { useParams } from "react-router-dom";
 
 const SingleDogViewWithEdition = () => {
-  const dogId = "25f6188c-1f41-4894-81a2-ecf376ec0b9f";
-
+  const params = useParams();
+  const id = params.id;
   return (
     <>
       <Container sx={{ mt: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12} sx={{ mb: 2 }}>
-            <GetDogPhotoOnlyUrl id={dogId} />
+            <GetDogPhotoOnlyUrl id={id} />
           </Grid>
         </Grid>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
             <Paper>
-              <IconNameBreed id={dogId} />
+              <IconNameBreed id={id} />
             </Paper>
           </Grid>
           <Grid item xs={12} sm={4}>
             <Paper>
-              <AgeWeight id={dogId} />
+              <AgeWeight id={id} />
             </Paper>
           </Grid>
           <Grid item xs={12} sm={4}>
             <Paper>
-              <BoxNumber id={dogId} />
+              <BoxNumber id={id} />
             </Paper>
           </Grid>
         </Grid>
@@ -59,20 +60,20 @@ const SingleDogViewWithEdition = () => {
           }}
         >
           <Grid item xs={12} sm={6} md={2}>
-            <ButtonFeeding id={dogId} />
+            <ButtonFeeding id={id} />
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
-            <ButtonWalk id={dogId} />
+            <ButtonWalk id={id} />
             {/* <WalksHistory /> */}
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
-            <ButtonCleaning id={dogId} />
+            <ButtonCleaning id={id} />
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
-            <ButtonPills id={dogId} />
+            <ButtonPills id={id} />
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
-            <ButtonRabies id={dogId} />
+            <ButtonRabies id={id} />
           </Grid>
         </Grid>
 
@@ -86,16 +87,16 @@ const SingleDogViewWithEdition = () => {
           }}
         >
           <Grid item xs={12} sm={12} md={6}>
-            <Comment id={dogId} />
+            <Comment id={id} />
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <Description id={dogId} />
+            <Description id={id} />
           </Grid>
           <Grid item xs={12} sm={6} md={2} sx={{ textAlign: "center" }}>
-            <CastratedChkbx id={dogId} />
+            <CastratedChkbx id={id} />
           </Grid>
           <Grid item xs={12} sm={6} md={2} sx={{ textAlign: "center" }}>
-            <AdoptedChkbx id={dogId} />
+            <AdoptedChkbx id={id} />
           </Grid>
         </Grid>
       </Container>
