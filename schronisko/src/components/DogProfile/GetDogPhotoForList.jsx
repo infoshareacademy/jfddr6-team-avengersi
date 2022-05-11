@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { storage } from "../../db";
 import { Paper } from "@mui/material";
 
-export const GetDogPhotoForList = () => {
+export const GetDogPhotoForList = ({ id }) => {
   const [imageList, setImageList] = useState([]);
-  let id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f/";
   useEffect(() => {
     const fetchImages = async () => {
       let result = await listAll(ref(storage, `DogPhotos/${id}/`));
