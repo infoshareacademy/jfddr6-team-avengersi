@@ -10,6 +10,7 @@ import { AddDogForm } from "./components/AddDog/AddDogForm";
 import SingleDogViewWithEdition from "./components/SingleDogViewWithEdition/SingleDogViewWithEdition";
 import { DogList } from "./Routes/DogList";
 import { Home } from "./Routes/Home";
+import { Dashboard } from "./Routes/Dashboard";
 
 function App() {
   return (
@@ -18,13 +19,9 @@ function App() {
         <ResponsiveAppBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/wolontariat"
-            element={<div>Panel Wolontariusza logowanie i rejestracja</div>}
-          />
-          <Route path="/psy" element={<DogList />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dogs" element={<DogList />} />
           <Route path="/dog/:id" element={<SingleDogViewWithEdition />} />
-          <Route path="/test" element={<SingleDogViewWithEdition />} />
           <Route path="/addDog" element={<AddDogForm />} />
         </Routes>
 
