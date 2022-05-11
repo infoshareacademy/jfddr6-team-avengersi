@@ -26,16 +26,6 @@ function DogsList() {
       <SingleDogView key={dog.id} id={dog.id} refreshList={getDogs} />
     ));
 
-  console.log(listOfDogs());
-
-  return (
-    <>
-      {dogs.length > 0 ? (
-        <>{listOfDogs()}</>
-      ) : (
-        console.log("No dogs here, buddy!")
-      )}
-    </>
-  );
+  return <>{listOfDogs()}</>;
 }
 export default DogsList;

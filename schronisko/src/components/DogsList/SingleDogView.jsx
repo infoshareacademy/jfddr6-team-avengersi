@@ -56,8 +56,6 @@ const SingleDogView = () => {
           <Grid item xs={8} sm={4} md={10}>
             <Item
               sx={{
-                display: "flex",
-                justifyContent: "space-evenly",
                 padding: "0",
                 marginTop: "80px",
               }}
