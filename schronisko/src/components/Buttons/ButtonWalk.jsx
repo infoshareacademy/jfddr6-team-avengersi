@@ -64,6 +64,7 @@ const ButtonWalk = () => {
         startIcon={<TransferWithinAStationIcon />}
         size="large"
         onClick={handleOpen}
+        fullWidth
       >
         {dog.walk}
       </Button>

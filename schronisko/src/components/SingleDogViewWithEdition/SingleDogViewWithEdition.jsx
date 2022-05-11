@@ -30,24 +30,24 @@ const SingleDogViewWithEdition = () => {
 
   return (
     <>
-      <Container sx={{ marginTop: "20px" }}>
+      <Container sx={{ mt: 2 }}>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={12} sx={{ mb: 2 }}>
             <GetDogPhotoOnlyUrl />
           </Grid>
         </Grid>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={4}>
             <Paper>
               <IconNameBreed />
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={4}>
             <Paper>
               <AgeWeight />
             </Paper>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={4}>
             <Paper>
               <BoxNumber />
             </Paper>
@@ -57,6 +57,7 @@ const SingleDogViewWithEdition = () => {
 
         <Grid
           container
+          columns={10}
           spacing={2}
           sx={{
             marginTop: "20px",
@@ -78,7 +79,7 @@ const SingleDogViewWithEdition = () => {
           <Grid item xs={12} sm={6} md={2}>
             <ButtonPills />
           </Grid>
-          <Grid item xs={12} sm={12} md={2}>
+          <Grid item xs={12} sm={6} md={2}>
             <ButtonRabies />
           </Grid>
         </Grid>
@@ -92,14 +93,16 @@ const SingleDogViewWithEdition = () => {
             alignItems: "center",
           }}
         >
-          <Grid item xs={12} sm={10} md={5}>
+          <Grid item xs={12} sm={12} md={6}>
             <Comment />
           </Grid>
-          <Grid item xs={12} sm={10} md={5}>
+          <Grid item xs={12} sm={12} md={6}>
             <Description />
           </Grid>
-          <Grid item xs={12} sm={2} md={2}>
+          <Grid item xs={12} sm={6} md={2} sx={{ textAlign: "center" }}>
             <CastratedChkbx />
+          </Grid>
+          <Grid item xs={12} sm={6} md={2} sx={{ textAlign: "center" }}>
             <AdoptedChkbx />
           </Grid>
         </Grid>

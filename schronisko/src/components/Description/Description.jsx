@@ -53,11 +53,12 @@ export default function Description() {
           value={dogsDescriptionValue}
           disabled={!editMode}
           onChange={handleChangeDescription}
+          sx={{ mb: 1 }}
         />
         <Button variant="contained" onClick={handleSubmit}>
           Ok
         </Button>
-        <Button onClick={handleClickEdit}>
+        <Button onClick={handleClickEdit} mt={1}>
           {editMode ? <>Zakończ edycję</> : <>Edytuj</>}
         </Button>
       </form>

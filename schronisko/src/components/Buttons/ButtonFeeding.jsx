@@ -64,6 +64,7 @@ const ButtonFeeding = () => {
         startIcon={<CookieIcon />}
         size="large"
         onClick={handleOpen}
+        fullWidth
       >
         {dog.feeding}
       </Button>
