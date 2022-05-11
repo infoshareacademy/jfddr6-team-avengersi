@@ -5,7 +5,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import * as React from "react";
 import { theme } from "./themes/Themes";
 import { ThemeProvider } from "@mui/material/styles";
-import HomePage from "./routes/HomePage";
 import DogsList from "./components/DogsList/DogsList.jsx";
 import Slider from "./components/Slider/Slider";
 import { AddDogForm } from "./components/AddDog/AddDogForm";
