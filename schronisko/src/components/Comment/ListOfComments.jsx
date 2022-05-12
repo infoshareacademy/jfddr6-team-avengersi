@@ -7,6 +7,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
+import moment from "moment";
 
 function ListOfComments({ id }) {
   const [commentList, setCommentList] = useState([]);
@@ -43,7 +44,9 @@ function ListOfComments({ id }) {
           {commentList.map((comment) => {
             return (
               <ListItem disablePadding key={comment.date}>
-                <ListItemText primary={new Date(comment.date).getFullYear()} />
+                <ListItemText
+                  primary={moment(new Date(comment.date)).format("LLL")}
+                />
                 <ListItemText primary={comment.comment} />
                 <Divider />
               </ListItem>
