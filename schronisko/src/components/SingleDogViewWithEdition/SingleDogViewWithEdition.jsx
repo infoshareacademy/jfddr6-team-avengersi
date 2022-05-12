@@ -29,6 +29,7 @@ const SingleDogViewWithEdition = () => {
   const id = params.id;
 
   const [walksList, setWalksList] = useState([]);
+  const [commentList, setCommentList] = useState([]);
 
   const getDogs = async () => {
     const docReferrence = doc(db, "dogs", id);
@@ -38,9 +39,11 @@ const SingleDogViewWithEdition = () => {
     const dogData = {
       id: dogDocument.id,
       walks: dogDocument.data().walks,
+      comments: dogDocument.data().comments,
     };
     console.log(id);
     setWalksList(dogData.walks.slice(-3).reverse());
+    setCommentList(dogData.comments.slice(-3).reverse());
   };
 
   return (
@@ -109,8 +112,12 @@ const SingleDogViewWithEdition = () => {
           }}
         >
           <Grid item xs={12} sm={12} md={6}>
-            <Comment id={id} />
-            <ListOfComments id={id} />
+            <Comment id={id} getDogs={getDogs} />
+            <ListOfComments
+              id={id}
+              getDogs={getDogs}
+              commentList={commentList}
+            />
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
             <Description id={id} />
