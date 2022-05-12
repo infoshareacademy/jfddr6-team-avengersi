@@ -39,7 +39,7 @@ export default function Description({
   };
 
   return (
-    <Container>
+    <Container style={{ paddingRight: 0 }}>
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <TextField
           label="Opis psiaka"

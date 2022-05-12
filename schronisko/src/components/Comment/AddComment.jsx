@@ -19,7 +19,6 @@ export default function AddComment({ id, getDogs }) {
       comments: arrayUnion({ comment: commentValue, date: Date.now() }),
     });
 
-    console.log(result);
     setCommentValue(commentValue);
   }, [commentValue]);
 
@@ -37,7 +36,7 @@ export default function AddComment({ id, getDogs }) {
   }, []);
 
   return (
-    <Container>
+    <Container style={{ paddingLeft: 0 }}>
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <TextField
           label="Komentarz"
@@ -55,7 +54,7 @@ export default function AddComment({ id, getDogs }) {
             variant="contained"
             color="primary"
             type="submit"
-            disabled={commentValue === ""}
+            disabled={commentValue.trim().length === 0}
           >
             Zapisz
           </Button>
