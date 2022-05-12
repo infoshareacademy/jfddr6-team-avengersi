@@ -22,6 +22,7 @@ export const LoginRegister = () => {
 
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+  const [recoveryEmail, setRecoveryEmail] = useState("");
 
   const loginUser = async (email, password) => {
     await signInWithEmailAndPassword(auth, email, password).then((response) => {
@@ -49,12 +50,12 @@ export const LoginRegister = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     registerUser(inputEmail, inputPassword);
-    navigate("/dogs");
+    navigate("/psy");
   };
 
   const resetPassword = () => {
     const auth = getAuth();
-    sendPasswordResetEmail(auth, inputEmail).then(() => {});
+    sendPasswordResetEmail(auth, recoveryEmail).then(() => {});
   };
 
   return (
@@ -132,8 +133,8 @@ export const LoginRegister = () => {
                 name="email"
                 autoComplete="email"
                 autoFocus
-                value={inputEmail}
-                onChange={(e) => setInputEmail(e.target.value)}
+                value={recoveryEmail}
+                onChange={(e) => setRecoveryEmail(e.target.value)}
                 color="secondary"
               />
               <Button
