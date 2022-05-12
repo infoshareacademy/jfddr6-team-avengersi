@@ -23,13 +23,13 @@ const SingleDogViewForClients = ({ id }) => {
   return (
     <Container
       sx={{
-        width: "100vw",
+        width: "70%",
         backgroundColor: "#f6f7fa",
         marginTop: "10px",
       }}
     >
-      <Grid container spacing={0} columns={16}>
-        <Grid item xs={16} sm={6} md={3}>
+      <Grid container spacing={0} columns={14}>
+        <Grid item xs={14} sm={6} md={3}>
           <Grid container spacing={0} columns={3}>
             <Grid item xs={3} sm={3} md={3}>
               <Item
@@ -45,7 +45,7 @@ const SingleDogViewForClients = ({ id }) => {
           </Grid>
         </Grid>
 
-        <Grid item xs={16} sm={4} md={3}>
+        <Grid item xs={14} sm={4} md={3}>
           <Grid container spacing={0} columns={3}>
             <Grid item xs={1} sm={3} md={3}>
               <Item
@@ -70,9 +70,9 @@ const SingleDogViewForClients = ({ id }) => {
           </Grid>
         </Grid>
 
-        <Grid item xs={16} sm={4} md={4}>
-          <Grid container spacing={0} columns={4}>
-            <Grid item xs={4} sm={4} md={4}>
+        <Grid item xs={14} sm={4} md={4}>
+          <Grid container spacing={0} columns={5}>
+            <Grid item xs={5} sm={5} md={4}>
               <Item
                 sx={{
                   padding: "0",
@@ -84,16 +84,17 @@ const SingleDogViewForClients = ({ id }) => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={16} sm={4} md={3}>
+        <Grid item xs={14} sm={4} md={3}>
           <Grid container spacing={0} columns={3}>
             <Grid item xs={3} sm={3} md={3}>
               <Item
                 sx={{
                   padding: "0",
+                  //   ml: "-50%",
                 }}
                 elevation={0}
               >
-                {/* <AskButton /> */}
+                <AskButton />
               </Item>
             </Grid>
           </Grid>

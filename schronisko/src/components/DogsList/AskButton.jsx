@@ -12,7 +12,7 @@ const AskButton = () => {
         startIcon={<AddIcon />}
         size="large"
         onClick={() => navigate("/adopt")}
-        color="primary.light"
+        color="success"
       >
         Adoptuj
       </Button>
