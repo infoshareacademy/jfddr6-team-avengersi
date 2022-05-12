@@ -9,7 +9,7 @@ export default function DescriptionWithoutEdit({ id }) {
   const [dogs, setDogs] = useState([]);
   const [description, setDescription] = useState([]);
 
-  const GetDogs = async () => {
+  const getDogs = async () => {
     const dogsCollection = collection(db, "dogs");
     const dogsDocuments = await getDocs(dogsCollection);
 
@@ -20,22 +20,22 @@ export default function DescriptionWithoutEdit({ id }) {
     setDogs(dogsData);
 
     setDescription(
-      dogsData.filter((element) => element.id === id)[0].data.dogsDescription
+      dogsData.filter((element) => element.id === id)[0].data.description
     );
   };
 
   useEffect(() => {
-    GetDogs();
+    getDogs();
   }, []);
 
   return (
     <Container>
       <TextField
-        label="Opis psiaka"
-        variant="filled"
+        variant="outlined"
         color="primary"
         fullWidth
         disabled
+        hiddenLabel
         multiline
         rows={7}
         defaultValue={description}
