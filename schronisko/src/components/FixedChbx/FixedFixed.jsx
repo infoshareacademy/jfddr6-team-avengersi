@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { db } from "../../db";
 import { theme } from "../../themes/Themes";
 
-const CastratedChkbx = ({ id }) => {
+export const FixedFixed = ({ id }) => {
   const [isFixed, setIsFixed] = useState(false);
 
   useEffect(() => {
@@ -19,12 +19,6 @@ const CastratedChkbx = ({ id }) => {
     });
   }, []);
 
-  const handleChange = async () => {
-    await updateDoc(doc(db, "dogs", id), {
-      fixed: !isFixed,
-    });
-    setIsFixed(!isFixed);
-  };
   return (
     <ThemeProvider theme={theme}>
       <FormControlLabel
@@ -36,12 +30,8 @@ const CastratedChkbx = ({ id }) => {
             color: "primary",
           },
         }}
-        control={
-          <Checkbox color="primary" checked={isFixed} onChange={handleChange} />
-        }
+        control={<Checkbox color="primary" checked={isFixed} />}
       />
     </ThemeProvider>
   );
 };
-
-export default CastratedChkbx;
