@@ -83,7 +83,7 @@ const SingleDogViewWithEdition = () => {
           sx={{
             marginTop: "20px",
             justifyContent: "center",
-            // alignItems: "center",
+            alignItems: "top",
             padding: "20px",
           }}
         >
