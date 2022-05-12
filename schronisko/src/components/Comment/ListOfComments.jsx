@@ -36,6 +36,7 @@ function ListOfComments({ id, getDogs, commentList }) {
         maxWidth: 360,
         // bgcolor: "background.paper",
         fontFamily: "Roboto, Helvetica, Arial,sans-serif",
+        ml: 4,
       }}
     >
       <nav>
