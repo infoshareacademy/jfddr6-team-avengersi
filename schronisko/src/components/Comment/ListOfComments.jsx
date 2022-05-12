@@ -13,7 +13,7 @@ function ListOfComments({ id }) {
   const [commentList, setCommentList] = useState([]);
   // let id = "d6a027ba-3de2-4e66-82ba-d5fff99ccbad"; // propsy
 
-  const GetDogs = async () => {
+  const getDogs = async () => {
     const docReferrence = doc(db, "dogs", id);
 
     const dogDocument = await getDoc(docReferrence);
@@ -27,7 +27,7 @@ function ListOfComments({ id }) {
   };
 
   useEffect(() => {
-    GetDogs();
+    getDogs();
   }, []);
 
   return (

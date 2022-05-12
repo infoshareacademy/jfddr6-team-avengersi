@@ -15,9 +15,10 @@ const ButtonWalk = ({ id }) => {
   useEffect(() => {
     const docRef = doc(db, "dogs", id);
     onSnapshot(docRef, (doc) => {
-      const timeStamp = doc.data().walk;
-      const date = new Date(timeStamp);
-
+      const allWalks = doc.data().walks;
+      console.log("allWalks", allWalks);
+      const date = new Date(allWalks[allWalks.length - 1].date);
+      console.log("date", date);
       const oneDog = {
         walk: moment(date).fromNow(),
       };

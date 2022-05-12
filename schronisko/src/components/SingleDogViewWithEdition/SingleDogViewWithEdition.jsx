@@ -18,7 +18,6 @@ import CastratedChkbx from "../../components/Checkboxes/CastrartedChkbx";
 import Comment from "../../components/Comment/AddComment";
 import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
-
 import ButtonDelete from "../Buttons/ButtonDelete";
 import ListOfComments from "../Comment/ListOfComments";
 
@@ -68,7 +67,7 @@ const SingleDogViewWithEdition = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <ButtonWalk id={id} />
-            {/* <WalksHistory /> */}
+            <WalksHistory id={id} />
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <ButtonCleaning id={id} />
