@@ -1,34 +1,28 @@
 import { Checkbox, FormControlLabel } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import { doc, onSnapshot, setDoc, updateDoc } from "firebase/firestore";
+import { doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../db";
 import { theme } from "../../themes/Themes";
 
-const CastratedChkbx = ({ id }) => {
-  const [isFixed, setIsFixed] = useState(false);
+export const FixedAdopted = ({ id }) => {
+  const [isAdopted, setIsAdopted] = useState(false);
 
   useEffect(() => {
     const docRef = doc(db, "dogs", id);
     onSnapshot(docRef, (doc) => {
       const oneDog = {
-        fixed: doc.data().fixed,
+        adopted: doc.data().fixed,
       };
-      setIsFixed(oneDog);
+      setIsAdopted(oneDog);
       console.log(oneDog);
     });
   }, []);
 
-  const handleChange = async () => {
-    await updateDoc(doc(db, "dogs", id), {
-      fixed: !isFixed,
-    });
-    setIsFixed(!isFixed);
-  };
   return (
     <ThemeProvider theme={theme}>
       <FormControlLabel
-        label="Kastrowany"
+        label="Adoptowany"
         sx={{
           "& .MuiFormControlLabel-label": {
             fontFamily: "Roboto, Helvetica, Arial,sans-serif",
@@ -36,12 +30,8 @@ const CastratedChkbx = ({ id }) => {
             color: "primary",
           },
         }}
-        control={
-          <Checkbox color="primary" checked={isFixed} onChange={handleChange} />
-        }
+        control={<Checkbox color="primary" checked={isAdopted} />}
       />
     </ThemeProvider>
   );
 };
-
-export default CastratedChkbx;

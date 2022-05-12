@@ -1,8 +1,30 @@
 import { Checkbox, FormControlLabel } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
+import { doc, onSnapshot, updateDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { db } from "../../db";
 import { theme } from "../../themes/Themes";
 
-const AdoptedChkbx = () => {
+const AdoptedChkbx = ({ id }) => {
+  const [isAdopted, setIsAdopted] = useState(false);
+
+  useEffect(() => {
+    const docRef = doc(db, "dogs", id);
+    onSnapshot(docRef, (doc) => {
+      const oneDog = {
+        adopted: doc.data().fixed,
+      };
+      setIsAdopted(oneDog);
+      console.log(oneDog);
+    });
+  }, []);
+
+  const handleChange = async () => {
+    await updateDoc(doc(db, "dogs", id), {
+      fixed: !isAdopted,
+    });
+    setIsAdopted(!isAdopted);
+  };
   return (
     <ThemeProvider theme={theme}>
       <FormControlLabel
@@ -16,9 +38,9 @@ const AdoptedChkbx = () => {
         }}
         control={
           <Checkbox
-            defaultChecked
             color="primary"
-            //   onChange={handleChange}
+            checked={isAdopted}
+            onChange={handleChange}
           />
         }
       />
