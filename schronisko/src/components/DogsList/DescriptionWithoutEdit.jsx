@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "@mui/material";
 import { Container } from "@mui/material";
 import { TextField } from "@mui/material";
 import { useState, useEffect } from "react";
@@ -28,14 +27,13 @@ export default function DescriptionWithoutEdit({ id }) {
   useEffect(() => {
     GetDogs();
   }, []);
-
   console.log(description);
 
   return (
     <Container>
       <TextField
         label="Opis psiaka"
-        variant="outlined"
+        variant="filled"
         color="primary"
         fullWidth
         disabled

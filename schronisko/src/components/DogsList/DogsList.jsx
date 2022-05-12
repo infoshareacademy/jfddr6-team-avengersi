@@ -39,7 +39,7 @@ function DogsList() {
           startIcon={<AddIcon />}
           size="large"
           onClick={() => navigate("/addDog")}
-          color="success"
+          color="primary.light"
         >
           Dodaj nowego psiaka
         </Button>
