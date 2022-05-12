@@ -13,6 +13,7 @@ import { Home } from "./Routes/Home";
 import { Dashboard } from "./Routes/Dashboard";
 import moment from "moment";
 import pl from "moment/locale/pl";
+import { ClientsForm } from "./components/ClientsForm/ClientsForm";
 
 function App() {
   moment.locale("pl");
@@ -27,6 +28,7 @@ function App() {
           <Route path="/dogs" element={<DogList />} />
           <Route path="/dog/:id" element={<SingleDogViewWithEdition />} />
           <Route path="/addDog" element={<AddDogForm />} />
+          <Route path="/adopt" element={<ClientsForm />} />
         </Routes>
         <Footer />
       </BrowserRouter>
