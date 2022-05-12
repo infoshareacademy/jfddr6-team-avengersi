@@ -51,8 +51,13 @@ export default function AddComment({ id, getDogs }) {
           sx={{ mb: 1 }}
         />
         <Box>
-          <Button variant="contained" color="primary" type="submit">
-            Ok
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            disabled={commentValue === ""}
+          >
+            Zapisz
           </Button>
         </Box>
       </form>
