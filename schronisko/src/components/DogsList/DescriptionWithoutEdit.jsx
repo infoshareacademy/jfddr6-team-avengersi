@@ -27,7 +27,6 @@ export default function DescriptionWithoutEdit({ id }) {
   useEffect(() => {
     GetDogs();
   }, []);
-  console.log(description);
 
   return (
     <Container>

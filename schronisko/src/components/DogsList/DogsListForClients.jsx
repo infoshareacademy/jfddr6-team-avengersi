@@ -2,13 +2,8 @@ import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../db";
 import SingleDogViewForClients from "./SingleDogViewForClients";
-import AddIcon from "@mui/icons-material/Add";
-import { Button, Container } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 
 function DogsListForClients() {
-  const navigate = useNavigate();
-
   const [dogs, setDogs] = useState([]);
 
   const getDogs = async () => {
@@ -31,22 +26,6 @@ function DogsListForClients() {
       <SingleDogViewForClients key={dog.id} id={dog.id} refreshList={getDogs} />
     ));
 
-  return (
-    <>
-      <Container sx={{ mt: 1 }}>
-        <Button
-          variant="contained"
-          startIcon={<AddIcon />}
-          size="large"
-          onClick={() => navigate("/addDog")}
-          color="primary.light"
-        >
-          Dodaj nowego psiaka
-        </Button>
-      </Container>
-
-      {listOfDogs()}
-    </>
-  );
+  return <>{listOfDogs()}</>;
 }
 export default DogsListForClients;
