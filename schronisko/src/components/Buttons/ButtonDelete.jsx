@@ -3,7 +3,7 @@ import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../db";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { Navigate, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ButtonDelete = ({ id }) => {
   const navigate = useNavigate();
