@@ -34,7 +34,7 @@ function ListOfComments({ id, getDogs, commentList }) {
       sx={{
         width: "100%",
         maxWidth: 360,
-        bgcolor: "background.paper",
+        // bgcolor: "background.paper",
         fontFamily: "Roboto, Helvetica, Arial,sans-serif",
       }}
     >
