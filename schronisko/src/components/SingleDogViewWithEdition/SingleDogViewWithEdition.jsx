@@ -20,10 +20,29 @@ import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import ButtonDelete from "../Buttons/ButtonDelete";
 import ListOfComments from "../Comment/ListOfComments";
+import { doc, getDoc } from "firebase/firestore";
+import { useState } from "react";
+import { db } from "../../db";
 
 const SingleDogViewWithEdition = () => {
   const params = useParams();
   const id = params.id;
+
+  const [walksList, setWalksList] = useState([]);
+
+  const getDogs = async () => {
+    const docReferrence = doc(db, "dogs", id);
+    console.log(id);
+    const dogDocument = await getDoc(docReferrence);
+
+    const dogData = {
+      id: dogDocument.id,
+      walks: dogDocument.data().walks,
+    };
+    console.log(id);
+    setWalksList(dogData.walks.slice(-3).reverse());
+  };
+
   return (
     <>
       <Container sx={{ mt: 2 }}>
@@ -66,8 +85,8 @@ const SingleDogViewWithEdition = () => {
             <ButtonFeeding id={id} />
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
-            <ButtonWalk id={id} />
-            <WalksHistory id={id} />
+            <ButtonWalk id={id} getDogs={getDogs} />
+            <WalksHistory id={id} getDogs={getDogs} walksList={walksList} />
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <ButtonCleaning id={id} />
