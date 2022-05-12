@@ -27,6 +27,7 @@ const LabelCleaning = ({ id }) => {
         variant="outlined"
         startIcon={<CleaningServicesIcon />}
         size="large"
+        sx={{ m: 0.2 }}
       >
         {dog.cleaning}
       </Button>

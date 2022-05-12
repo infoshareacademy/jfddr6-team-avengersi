@@ -23,7 +23,12 @@ const LabelPills = ({ id }) => {
 
   return (
     <>
-      <Button variant="outlined" startIcon={<LocalHospitalIcon />} size="large">
+      <Button
+        variant="outlined"
+        startIcon={<LocalHospitalIcon />}
+        size="large"
+        sx={{ m: 0.2 }}
+      >
         {dog.pills}
       </Button>
     </>

@@ -24,7 +24,12 @@ const LabelFeeding = ({ id }) => {
 
   return (
     <>
-      <Button variant="outlined" startIcon={<CookieIcon />} size="large">
+      <Button
+        variant="outlined"
+        startIcon={<CookieIcon />}
+        size="large"
+        sx={{ m: 0.2 }}
+      >
         {dog.feeding}
       </Button>
     </>
