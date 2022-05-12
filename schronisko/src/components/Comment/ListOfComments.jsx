@@ -8,12 +8,13 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 
-function ListOfComments() {
+function ListOfComments({ id }) {
   const [commentList, setCommentList] = useState([]);
-  let id = "d6a027ba-3de2-4e66-82ba-d5fff99ccbad"; // propsy
+  // let id = "d6a027ba-3de2-4e66-82ba-d5fff99ccbad"; // propsy
 
   const GetDogs = async () => {
     const docReferrence = doc(db, "dogs", id);
+
     const dogDocument = await getDoc(docReferrence);
 
     const dogData = {

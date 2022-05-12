@@ -6,12 +6,12 @@ import { useState } from "react";
 import { db } from "../../db";
 import { updateDoc, doc, arrayUnion } from "firebase/firestore";
 
-const dog = {
-  // id: "d6a027ba-3de2-4e66-82ba-d5fff99ccbad",
-  comment: "",
-};
-
 export default function AddComment({ id }) {
+  const dog = {
+    id: id,
+    comment: "",
+  };
+  // console.log("HERE " + id);
   const [commentValue, setCommentValue] = useState(dog.comment);
 
   const submitComment = React.useCallback(async () => {

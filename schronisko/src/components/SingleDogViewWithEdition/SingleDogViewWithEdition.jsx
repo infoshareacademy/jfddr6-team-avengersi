@@ -20,6 +20,7 @@ import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 
 import ButtonDelete from "../Buttons/ButtonDelete";
+import ListOfComments from "../Comment/ListOfComments";
 
 const SingleDogViewWithEdition = () => {
   const params = useParams();
@@ -86,11 +87,12 @@ const SingleDogViewWithEdition = () => {
           sx={{
             marginTop: "20px",
             justifyContent: "center",
-            alignItems: "center",
+            // alignItems: "center",
           }}
         >
           <Grid item xs={12} sm={12} md={6}>
             <Comment id={id} />
+            <ListOfComments id={id} />
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
             <Description id={id} />
