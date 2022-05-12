@@ -88,7 +88,7 @@ export const LoginRegister = () => {
             autoFocus
             value={inputEmail}
             onChange={(e) => setInputEmail(e.target.value)}
-            color="secondary"
+            color="primary"
           />
           <TextField
             margin="normal"
@@ -101,7 +101,7 @@ export const LoginRegister = () => {
             autoComplete="current-password"
             value={inputPassword}
             onChange={(e) => setInputPassword(e.target.value)}
-            color="secondary"
+            color="primary"
           />
           <Button
             type="submit"
@@ -109,7 +109,7 @@ export const LoginRegister = () => {
             variant="contained"
             sx={{ mt: 2, mb: 1 }}
             onClick={handleLogin}
-            color="secondary"
+            color="primary"
           >
             Zaloguj{" "}
           </Button>
@@ -119,7 +119,7 @@ export const LoginRegister = () => {
             variant="contained"
             sx={{ mt: 2, mb: 1 }}
             onClick={handleRegister}
-            color="secondary"
+            color="primary"
           >
             Zarejestruj{" "}
           </Button>
@@ -136,7 +136,7 @@ export const LoginRegister = () => {
                 autoFocus
                 value={recoveryEmail}
                 onChange={(e) => setRecoveryEmail(e.target.value)}
-                color="secondary"
+                color="primary"
               />
               <Button
                 type="submit"
@@ -144,7 +144,7 @@ export const LoginRegister = () => {
                 variant="contained"
                 sx={{ mt: 2, mb: 1 }}
                 onClick={resetPassword}
-                color="secondary"
+                color="primary"
               >
                 Resetuj hasło{" "}
               </Button>

@@ -11,13 +11,13 @@ const AdoptedChkbx = () => {
           "& .MuiFormControlLabel-label": {
             fontFamily: "Roboto, Helvetica, Arial,sans-serif",
             fontWeight: "500",
-            color: "#E28CA0",
+            color: "primary",
           },
         }}
         control={
           <Checkbox
             defaultChecked
-            color="secondary"
+            color="primary"
             //   onChange={handleChange}
           />
         }
