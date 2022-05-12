@@ -43,6 +43,7 @@ const ButtonDelete = ({ id }) => {
         color="error"
         startIcon={<DeleteForeverIcon />}
         onClick={handleOpen}
+        sx={{ mb: 2 }}
       >
         Usuń psa z bazy
       </Button>

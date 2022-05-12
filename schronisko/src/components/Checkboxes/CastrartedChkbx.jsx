@@ -15,7 +15,7 @@ const CastratedChkbx = ({ id }) => {
         fixed: doc.data().fixed,
       };
       setIsFixed(oneDog);
-      console.log(oneDog);
+      // console.log(oneDog);
     });
   }, []);
 
