@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./SlideOne.module.css";
 
 const SlideOne = () => {
+  const navigate = useNavigate();
   return (
     <div className={styles.main}>
       <article className={styles.content}>
@@ -15,7 +17,9 @@ const SlideOne = () => {
         </h4>
         <div className={styles.bar}>
           <h3>Znajdź. Pokochaj. Zaadoptuj.</h3>
-          <button className={styles.button}>Zobacz zwierzaki</button>
+          <button className={styles.button} onClick={() => navigate("/dogs")}>
+            Zobacz zwierzaki
+          </button>
         </div>
       </article>
       <div className={styles.images}>
