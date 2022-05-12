@@ -1,10 +1,12 @@
-import styles from "./SildeTwo.module.css";
+import { useNavigate } from "react-router-dom";
+import styles from "./SlideOne.module.css";
 
 const SlideOne = () => {
+  const navigate = useNavigate();
   return (
     <div className={styles.main}>
       <article className={styles.content}>
-        <h2>Zostań wolontariuszem! </h2>
+        <h2>Nie bądź obojętny... Zaadoptuj Mnie! 🐶</h2>
         <h4>
           Poznaj nasze wszystkie Zwierzaki! Dzięki formularzowi kontaktowemu
           dowiesz się wiecej o każdym z nich.
@@ -14,8 +16,10 @@ const SlideOne = () => {
           stanie fizycznym i psychicznym.
         </h4>
         <div className={styles.bar}>
-          <h3>Wypełnij formularz, dołącz do Nas!</h3>
-          <button className={styles.button}>Chcę pomóc!</button>
+          <h3>Znajdź. Pokochaj. Zaadoptuj.</h3>
+          <button className={styles.button} onClick={() => navigate("/dogs")}>
+            Zobacz zwierzaki
+          </button>
         </div>
       </article>
       <div className={styles.images}>
