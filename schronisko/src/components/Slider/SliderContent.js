@@ -1,7 +1,7 @@
 import React from "react";
-import SlideOne from "./Sliders/SildeOne";
-import SlideTwo from "./Sliders/SildeTwo";
-
+import SlideOne from "./Sliders/SliderOne/SlideOne";
+// import SlideTwo from "./Sliders/SliderTwo/SlideTwo";
+//
 function SliderContent({ activeIndex, sliderImage }) {
   return (
     <section>
@@ -11,7 +11,7 @@ function SliderContent({ activeIndex, sliderImage }) {
           className={index === activeIndex ? "slides active" : "inactive"}
         >
           <SlideOne />
-          <SlideTwo />
+          {/* <SlideTwo /> */}
         </div>
       ))}
     </section>
