@@ -29,53 +29,103 @@ const SingleDogView = ({ id }) => {
         width: "100vw",
         backgroundColor: "#f6f7fa",
         marginTop: "10px",
-        cursor: "pointer",
       }}
-      onClick={() => console.log("siema")}
-      // onClick=<Link to={`/dog/${id}`}></Link>
-      // onClick={() => <Link to={`/dog/${id}`}></Link>}
     >
-      <Box sx={{ flexGrow: 1, boxShadow: 2 }}>
-        <Grid container spacing={0} columns={16}>
-          <Grid item xs={16} sm={8} md={3}>
-            <Item
-              sx={{
-                paddingBottom: "10px",
-              }}
-              elevation={0}
-            >
-              <GetDogPhotoForList id={id} />
-              <Link to={`/dog/${id}`}>More info...</Link>
-            </Item>
-          </Grid>
-          <Grid item xs={8} sm={4} md={3}>
-            <Item
-              sx={{
-                padding: "0",
-              }}
-              elevation={0}
-            >
-              <IconNameBreed id={id} />
-              <BoxNumber id={id} />
-            </Item>
-          </Grid>
-          <Grid item xs={8} sm={4} md={10}>
-            <Item
-              sx={{
-                padding: "0",
-                mt: "12%",
-                mb: "10%",
-              }}
-              elevation={0}
-            >
-              <LabelFeeding id={id} />
-              <LabelWalk id={id} />
-              <LabelPills id={id} />
-              <LabelCleaning id={id} />
-            </Item>
+      <Grid container spacing={0} columns={16}>
+        <Grid item xs={16} sm={6} md={3}>
+          {/* <Box sx={{ flexGrow: 1, boxShadow: 2 }}> */}
+          <Grid container spacing={0} columns={3}>
+            <Grid item xs={3} sm={3} md={3}>
+              <Item
+                sx={{
+                  paddingBottom: "10px",
+                }}
+                elevation={0}
+              >
+                <GetDogPhotoForList id={id} />
+                <Link to={`/dog/${id}`}>More info...</Link>
+              </Item>
+            </Grid>
           </Grid>
         </Grid>
-      </Box>
+
+        <Grid item xs={16} sm={4} md={2}>
+          <Grid container spacing={0} columns={2}>
+            <Grid item xs={1} sm={2} md={2}>
+              <Item
+                sx={{
+                  padding: "0",
+                }}
+                elevation={0}
+              >
+                <IconNameBreed id={id} />
+              </Item>
+            </Grid>
+            <Grid item xs={1} sm={2} md={2}>
+              <Item
+                sx={{
+                  padding: "0",
+                }}
+                elevation={0}
+              >
+                <BoxNumber id={id} />
+              </Item>
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid
+          item
+          xs={16}
+          sm={4}
+          md={6}
+          style={{ marginTop: "5%", marginBottom: "5%" }}
+        >
+          <Grid container spacing={0} columns={6}>
+            <Grid item xs={6} sm={6} md={3}>
+              <Item
+                sx={{
+                  padding: "0",
+                }}
+                elevation={0}
+              >
+                <LabelFeeding id={id} />
+              </Item>
+            </Grid>
+            <Grid item xs={6} sm={6} md={3}>
+              <Item
+                sx={{
+                  padding: "0",
+                }}
+                elevation={0}
+              >
+                <LabelWalk id={id} />
+              </Item>
+            </Grid>
+            <Grid item xs={6} sm={6} md={3}>
+              <Item
+                sx={{
+                  padding: "0",
+                }}
+                elevation={0}
+              >
+                <LabelPills id={id} />
+              </Item>
+            </Grid>
+            <Grid item xs={6} sm={6} md={3}>
+              <Item
+                sx={{
+                  padding: "0",
+                }}
+                elevation={0}
+              >
+                <LabelCleaning id={id} />
+              </Item>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+      {/* </Box> */}
     </Container>
   );
 };
