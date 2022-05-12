@@ -21,8 +21,8 @@ export const GetDogPhotoOnlyUrl = ({ id }) => {
       setImageList(urls);
     };
     loadImages();
-    console.log("odpalam galerie");
-    console.log(imageList[0]);
+    // console.log("odpalam galerie");
+    // console.log(imageList[0]);
   }, [id]);
 
   return (

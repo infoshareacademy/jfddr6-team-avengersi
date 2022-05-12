@@ -34,7 +34,7 @@ const SingleDogViewWithEdition = () => {
 
   const getDogs = async () => {
     const docReferrence = doc(db, "dogs", id);
-    console.log(id);
+    // console.log(id);
     const dogDocument = await getDoc(docReferrence);
 
     const dogData = {
@@ -43,7 +43,7 @@ const SingleDogViewWithEdition = () => {
       comments: dogDocument.data().comments,
       description: dogDocument.data().description,
     };
-    console.log(id);
+    // console.log(id);
     setWalksList(dogData.walks.slice(-3).reverse());
     setCommentList(dogData.comments.slice(-3).reverse());
     setDogsDescriptionValue(dogData.description);
