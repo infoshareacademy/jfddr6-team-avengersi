@@ -19,6 +19,7 @@ function WalksHistory({ getDogs, walksList }) {
         maxWidth: 360,
         // bgcolor: "background.paper",
         fontFamily: "Roboto, Helvetica, Arial,sans-serif",
+        ml: 2,
       }}
     >
       <nav>

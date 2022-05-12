@@ -83,7 +83,7 @@ const SingleDogViewWithEdition = () => {
           sx={{
             marginTop: "20px",
             justifyContent: "center",
-            alignItems: "center",
+            // alignItems: "center",
             padding: "20px",
           }}
         >
@@ -92,7 +92,12 @@ const SingleDogViewWithEdition = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <ButtonWalk id={id} getDogs={getDogs} />
-            <WalksHistory id={id} getDogs={getDogs} walksList={walksList} />
+            <WalksHistory
+              id={id}
+              getDogs={getDogs}
+              walksList={walksList}
+              sx={{ pl: 1 }}
+            />
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <ButtonCleaning id={id} />
