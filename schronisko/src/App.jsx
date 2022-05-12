@@ -49,7 +49,6 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-      DogsListForClients
     </ThemeProvider>
   );
 }
