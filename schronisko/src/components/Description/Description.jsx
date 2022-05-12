@@ -6,15 +6,12 @@ import { useState, useEffect } from "react";
 import { db, auth } from "../../db";
 import { updateDoc, doc } from "firebase/firestore";
 
-const dogDescription = {
-  // id: "25f6188c-1f41-4894-81a2-ecf376ec0b9f",
-  description: "",
-};
-
-export default function Description({ id }) {
-  const [dogsDescriptionValue, setDogsDescriptionValue] = useState(
-    dogDescription.description
-  );
+export default function Description({
+  id,
+  getDogs,
+  dogsDescriptionValue,
+  setDogsDescriptionValue,
+}) {
   const [editMode, setEditMode] = useState(false);
 
   const handleClickEdit = () => {
@@ -22,18 +19,19 @@ export default function Description({ id }) {
   };
 
   const editDescription = async () => {
-    const dogsDescription = dogsDescriptionValue;
+    const description = dogsDescriptionValue;
 
     await updateDoc(doc(db, "dogs", id), {
-      dogsDescription,
+      description,
     });
-    setDogsDescriptionValue(dogsDescription);
+    setDogsDescriptionValue(description);
 
     setEditMode(false);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     editDescription();
+    getDogs();
   };
 
   const handleChangeDescription = (e) => {
@@ -55,8 +53,8 @@ export default function Description({ id }) {
           onChange={handleChangeDescription}
           sx={{ mb: 1 }}
         />
-        <Button variant="contained" onClick={handleSubmit}>
-          Ok
+        <Button variant="contained" onClick={handleSubmit} disabled={!editMode}>
+          Zapisz
         </Button>
         <Button onClick={handleClickEdit} mt={1}>
           {editMode ? <>Zakończ edycję</> : <>Edytuj</>}

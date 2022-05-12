@@ -30,6 +30,7 @@ const SingleDogViewWithEdition = () => {
 
   const [walksList, setWalksList] = useState([]);
   const [commentList, setCommentList] = useState([]);
+  const [dogsDescriptionValue, setDogsDescriptionValue] = useState("");
 
   const getDogs = async () => {
     const docReferrence = doc(db, "dogs", id);
@@ -40,10 +41,12 @@ const SingleDogViewWithEdition = () => {
       id: dogDocument.id,
       walks: dogDocument.data().walks,
       comments: dogDocument.data().comments,
+      description: dogDocument.data().description,
     };
     console.log(id);
     setWalksList(dogData.walks.slice(-3).reverse());
     setCommentList(dogData.comments.slice(-3).reverse());
+    setDogsDescriptionValue(dogData.description);
   };
 
   return (
@@ -120,7 +123,11 @@ const SingleDogViewWithEdition = () => {
             />
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <Description id={id} />
+            <Description
+              id={id}
+              dogsDescriptionValue={dogsDescriptionValue}
+              setDogsDescriptionValue={setDogsDescriptionValue}
+            />
           </Grid>
           <Grid item xs={12} sm={6} md={2} sx={{ textAlign: "center" }}>
             <CastratedChkbx id={id} />
