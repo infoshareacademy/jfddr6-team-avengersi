@@ -28,6 +28,7 @@ const LabelWalk = ({ id }) => {
         variant="outlined"
         startIcon={<TransferWithinAStationIcon />}
         size="large"
+        sx={{ m: 0.2 }}
       >
         {dog.walk}
       </Button>
