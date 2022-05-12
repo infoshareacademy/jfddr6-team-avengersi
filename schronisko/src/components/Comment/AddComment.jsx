@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@mui/material";
 import { Container } from "@mui/material";
 import { TextField, Box } from "@mui/material";
@@ -6,7 +6,7 @@ import { useState } from "react";
 import { db } from "../../db";
 import { updateDoc, doc, arrayUnion } from "firebase/firestore";
 
-export default function AddComment({ id }) {
+export default function AddComment({ id, getDogs }) {
   const dog = {
     id: id,
     comment: "",
@@ -27,6 +27,7 @@ export default function AddComment({ id }) {
     (e) => {
       e.preventDefault();
       submitComment();
+      getDogs();
     },
     [submitComment]
   );

@@ -9,22 +9,21 @@ import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import moment from "moment";
 
-function ListOfComments({ id }) {
-  const [commentList, setCommentList] = useState([]);
+function ListOfComments({ id, getDogs, commentList }) {
   // let id = "d6a027ba-3de2-4e66-82ba-d5fff99ccbad"; // propsy
 
-  const getDogs = async () => {
-    const docReferrence = doc(db, "dogs", id);
+  // const getDogs = async () => {
+  //   const docReferrence = doc(db, "dogs", id);
 
-    const dogDocument = await getDoc(docReferrence);
+  //   const dogDocument = await getDoc(docReferrence);
 
-    const dogData = {
-      id: dogDocument.id,
-      comments: dogDocument.data().comments,
-    };
+  //   const dogData = {
+  //     id: dogDocument.id,
+  //     comments: dogDocument.data().comments,
+  //   };
 
-    setCommentList(dogData.comments.slice(-3).reverse());
-  };
+  //   setCommentList(dogData.comments.slice(-3).reverse());
+  // };
 
   useEffect(() => {
     getDogs();

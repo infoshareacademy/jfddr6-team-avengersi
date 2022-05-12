@@ -1,14 +1,12 @@
 import { Box, Button, Modal, TextField } from "@mui/material";
-import { doc, onSnapshot, updateDoc } from "firebase/firestore";
+import { doc, onSnapshot, updateDoc, arrayUnion } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../db";
 import TransferWithinAStationIcon from "@mui/icons-material/TransferWithinAStation";
 import moment from "moment";
 
-const ButtonWalk = ({ id }) => {
+const ButtonWalk = ({ id, getDogs }) => {
   const [dog, setDog] = useState([]);
-
-  // const id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f"; //props
 
   //pobieranie danych:
 
@@ -43,19 +41,20 @@ const ButtonWalk = ({ id }) => {
   };
 
   const [dateTime, setDateTime] = useState(new Date());
+
   const addTime = async () => {
     const walk = new Date(dateTime).getTime();
 
     await updateDoc(doc(db, "dogs", id), {
-      walk,
+      walks: arrayUnion({ date: walk }),
     });
-    console.log("Wysłano");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addTime();
     handleClose();
+    getDogs();
   };
 
   return (
