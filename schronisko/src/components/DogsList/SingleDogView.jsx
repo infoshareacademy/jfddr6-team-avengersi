@@ -29,7 +29,11 @@ const SingleDogView = ({ id }) => {
         width: "100vw",
         backgroundColor: "#f6f7fa",
         marginTop: "10px",
+        cursor: "pointer",
       }}
+      onClick={() => console.log("siema")}
+      // onClick=<Link to={`/dog/${id}`}></Link>
+      // onClick={() => <Link to={`/dog/${id}`}></Link>}
     >
       <Box sx={{ flexGrow: 1, boxShadow: 2 }}>
         <Grid container spacing={0} columns={16}>
