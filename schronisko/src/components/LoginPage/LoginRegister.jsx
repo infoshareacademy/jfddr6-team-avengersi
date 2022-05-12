@@ -64,6 +64,7 @@ export const LoginRegister = () => {
       <Box
         sx={{
           marginTop: 8,
+          marginBottom: 19,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
