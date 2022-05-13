@@ -5,8 +5,8 @@
 ___
 
 Twórcy aplikacji:
-[Anna Pawłowska](https://github.com/AnnaPawlowskaa)
-[Piotr Piechowski](https://github.com/ppiechowski)
-[Marta Urbaniak](https://github.com/MartaKatUrbaniak)
-[Gosia Zaremba](https://github.com/GosiaZaremba/)
+*[Anna Pawłowska](https://github.com/AnnaPawlowskaa)
+*[Piotr Piechowski](https://github.com/ppiechowski)
+*[Marta Urbaniak](https://github.com/MartaKatUrbaniak)
+*[Gosia Zaremba](https://github.com/GosiaZaremba/)
 
