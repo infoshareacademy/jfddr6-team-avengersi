@@ -15,7 +15,7 @@ export const FixedAdopted = ({ id }) => {
         adopted: doc.data().fixed,
       };
       setIsAdopted(oneDog);
-      console.log(oneDog);
+      // console.log(oneDog);
     });
   }, []);
 

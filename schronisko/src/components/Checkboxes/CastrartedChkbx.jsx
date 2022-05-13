@@ -10,13 +10,12 @@ const CastratedChkbx = ({ id }) => {
 
   useEffect(() => {
     const docRef = doc(db, "dogs", id);
-    onSnapshot(docRef, (doc) => {
-      const oneDog = {
-        fixed: doc.data().fixed,
-      };
-      setIsFixed(oneDog);
-      console.log(oneDog);
+    const unsubscribe = onSnapshot(docRef, (doc) => {
+      const fixed = doc.data().fixed;
+      setIsFixed(fixed);
+      // console.log(adopted);
     });
+    return unsubscribe;
   }, []);
 
   const handleChange = async () => {
@@ -24,6 +23,7 @@ const CastratedChkbx = ({ id }) => {
       fixed: !isFixed,
     });
     setIsFixed(!isFixed);
+    // console.log(isFixed);
   };
   return (
     <ThemeProvider theme={theme}>

@@ -10,18 +10,17 @@ const AdoptedChkbx = ({ id }) => {
 
   useEffect(() => {
     const docRef = doc(db, "dogs", id);
-    onSnapshot(docRef, (doc) => {
-      const oneDog = {
-        adopted: doc.data().fixed,
-      };
-      setIsAdopted(oneDog);
-      console.log(oneDog);
+    const unsubscribe = onSnapshot(docRef, (doc) => {
+      const adopted = doc.data().adopted;
+      setIsAdopted(adopted);
+      // console.log(adopted);
     });
+    return unsubscribe;
   }, []);
 
   const handleChange = async () => {
     await updateDoc(doc(db, "dogs", id), {
-      fixed: !isAdopted,
+      adopted: !isAdopted,
     });
     setIsAdopted(!isAdopted);
   };
