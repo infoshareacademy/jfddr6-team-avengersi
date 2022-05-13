@@ -1,11 +1,9 @@
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import DonationImg from "./donationBox.jpeg";
 import { Typography } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import GitHubImg from "./GitHub-Mark-Light-32px.png";
 
 export const Footer = () => {
   function Copyright() {
