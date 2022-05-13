@@ -49,7 +49,6 @@ const ButtonCleaning = ({ id }) => {
     await updateDoc(doc(db, "dogs", id), {
       cleaning,
     });
-    console.log("Wysłano");
   };
 
   const handleSubmit = (e) => {

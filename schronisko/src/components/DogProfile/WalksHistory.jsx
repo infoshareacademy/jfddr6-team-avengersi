@@ -17,7 +17,7 @@ function WalksHistory({ getDogs, walksList }) {
       sx={{
         width: "100%",
         maxWidth: 360,
-        // bgcolor: "background.paper",
+
         fontFamily: "Roboto, Helvetica, Arial,sans-serif",
         ml: 2,
       }}

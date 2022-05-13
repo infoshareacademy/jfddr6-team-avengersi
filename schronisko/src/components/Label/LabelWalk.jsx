@@ -12,7 +12,7 @@ const LabelWalk = ({ id }) => {
     const docRef = doc(db, "dogs", id);
     onSnapshot(docRef, (doc) => {
       const allWalks = doc.data().walks;
-      // const date = new Date(timeStamp);
+
       const date = new Date(allWalks[allWalks.length - 1].date);
 
       const oneDog = {

@@ -26,7 +26,6 @@ const ButtonDelete = ({ id }) => {
 
   const deleteDog = async () => {
     await deleteDoc(doc(db, "dogs", id));
-    console.log("Usunięto");
   };
 
   const handleSubmit = (e) => {

@@ -14,9 +14,9 @@ const ButtonWalk = ({ id, getDogs }) => {
     const docRef = doc(db, "dogs", id);
     onSnapshot(docRef, (doc) => {
       const allWalks = doc.data().walks;
-      // console.log("allWalks", allWalks);
+
       const date = new Date(allWalks[allWalks.length - 1].date);
-      // console.log("date", date);
+
       const oneDog = {
         walk: moment(date).fromNow(),
       };

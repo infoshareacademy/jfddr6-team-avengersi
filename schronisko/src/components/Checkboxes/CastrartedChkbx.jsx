@@ -13,7 +13,6 @@ const CastratedChkbx = ({ id }) => {
     const unsubscribe = onSnapshot(docRef, (doc) => {
       const fixed = doc.data().fixed;
       setIsFixed(fixed);
-      // console.log(adopted);
     });
     return unsubscribe;
   }, []);
@@ -23,7 +22,6 @@ const CastratedChkbx = ({ id }) => {
       fixed: !isFixed,
     });
     setIsFixed(!isFixed);
-    // console.log(isFixed);
   };
   return (
     <ThemeProvider theme={theme}>

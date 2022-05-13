@@ -48,7 +48,6 @@ const ButtonPills = ({ id }) => {
     await updateDoc(doc(db, "dogs", id), {
       pills,
     });
-    console.log("Wysłano");
   };
 
   const handleSubmit = (e) => {

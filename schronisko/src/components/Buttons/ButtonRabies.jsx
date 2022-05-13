@@ -48,7 +48,6 @@ const ButtonRabies = ({ id }) => {
     await updateDoc(doc(db, "dogs", id), {
       rabiesVaccination,
     });
-    console.log("Wysłano");
   };
 
   const handleSubmit = (e) => {
