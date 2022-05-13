@@ -43,7 +43,17 @@ const SingleDogView = ({ id }) => {
                 elevation={0}
               >
                 <GetDogPhotoForList id={id} />
-                <Link to={`/dog/${id}`}>More info...</Link>
+                <Link
+                  to={`/dog/${id}`}
+                  style={{
+                    textDecoration: "none",
+                    color: "#4C5075",
+                    fontFamily: "Roboto, Helvetica, Arial,sans-serif",
+                    fontWeight: 700,
+                  }}
+                >
+                  Więcej informacji...
+                </Link>
               </Item>
             </Grid>
           </Grid>
