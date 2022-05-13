@@ -29,11 +29,11 @@ const SingleDogView = ({ id }) => {
         width: "100vw",
         backgroundColor: "#f6f7fa",
         marginTop: "10px",
+        marginBottom: "10px",
       }}
     >
       <Grid container spacing={0} columns={16}>
         <Grid item xs={16} sm={6} md={3}>
-          {/* <Box sx={{ flexGrow: 1, boxShadow: 2 }}> */}
           <Grid container spacing={0} columns={3}>
             <Grid item xs={3} sm={3} md={3}>
               <Item
@@ -51,7 +51,7 @@ const SingleDogView = ({ id }) => {
 
         <Grid item xs={16} sm={4} md={2}>
           <Grid container spacing={0} columns={2}>
-            <Grid item xs={1} sm={2} md={2}>
+            <Grid item xs={2} sm={2} md={2}>
               <Item
                 sx={{
                   padding: "0",
@@ -61,7 +61,7 @@ const SingleDogView = ({ id }) => {
                 <IconNameBreed id={id} />
               </Item>
             </Grid>
-            <Grid item xs={1} sm={2} md={2}>
+            <Grid item xs={2} sm={2} md={2}>
               <Item
                 sx={{
                   padding: "0",
@@ -125,7 +125,6 @@ const SingleDogView = ({ id }) => {
           </Grid>
         </Grid>
       </Grid>
-      {/* </Box> */}
     </Container>
   );
 };

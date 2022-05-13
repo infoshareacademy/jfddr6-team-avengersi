@@ -25,7 +25,7 @@ const SingleDogViewForClients = ({ id }) => {
       sx={{
         width: "70%",
         backgroundColor: "#f6f7fa",
-        marginTop: "10px",
+        marginTop: "15px",
         marginBottom: "10px",
       }}
     >
