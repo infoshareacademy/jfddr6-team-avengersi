@@ -11,29 +11,19 @@ export default function AddComment({ id, getDogs }) {
     id: id,
     comment: "",
   };
-  // console.log("HERE " + id);
+
   const [commentValue, setCommentValue] = useState(dog.comment);
 
-  const submitComment = React.useCallback(async () => {
-    const result = await updateDoc(doc(db, "dogs", dog.id), {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await updateDoc(doc(db, "dogs", dog.id), {
       comments: arrayUnion({ comment: commentValue, date: Date.now() }),
     });
+    setCommentValue("");
+    getDogs();
+  };
 
-    setCommentValue(commentValue);
-  }, [commentValue]);
-
-  const handleSubmit = React.useCallback(
-    (e) => {
-      e.preventDefault();
-      submitComment();
-      getDogs();
-    },
-    [submitComment]
-  );
-
-  const handleChangeComment = React.useCallback((e) => {
-    setCommentValue(e.target.value);
-  }, []);
+  const handleChangeComment = (e) => setCommentValue(e.target.value);
 
   return (
     <Container style={{ paddingLeft: 0 }}>
