@@ -81,7 +81,7 @@ export const ClientsForm = () => {
         onSubmit={handleSubmit}
       >
         <TextField
-          color="secondary"
+          color="primary"
           id="text"
           label="Adres email"
           type="text"
@@ -99,7 +99,7 @@ export const ClientsForm = () => {
           }}
         />
         <TextField
-          color="secondary"
+          color="primary"
           id="email"
           label="Treść wiadomości"
           type="email"
@@ -118,7 +118,7 @@ export const ClientsForm = () => {
           multiline
           rows={10}
         />
-        <Button color="secondary" variant="outlined" type="submit">
+        <Button color="primary" variant="outlined" type="submit">
           WYŚLIJ WIADOMOŚĆ{" "}
         </Button>
       </Box>

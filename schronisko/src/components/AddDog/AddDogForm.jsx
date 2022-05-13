@@ -170,7 +170,7 @@ export const AddDogForm = () => {
                 </Typography>
               </Box>
               <TextField
-                color="secondary"
+                color="primary"
                 id="date"
                 label="Leki"
                 type="date"
@@ -188,7 +188,7 @@ export const AddDogForm = () => {
                 }}
               />
               <TextField
-                color="secondary"
+                color="primary"
                 type="text"
                 value={formState.description}
                 onChange={(e) =>
@@ -202,7 +202,7 @@ export const AddDogForm = () => {
                 rows={5}
               />
               <TextField
-                color="secondary"
+                color="primary"
                 type="text"
                 value={formState.comment}
                 onChange={(e) =>
@@ -219,7 +219,7 @@ export const AddDogForm = () => {
                 label="Kastracja"
                 control={
                   <Checkbox
-                    color="secondary"
+                    color="primary"
                     defaultChecked
                     onChange={(e) =>
                       setFormState({
@@ -234,7 +234,7 @@ export const AddDogForm = () => {
                 label="Adoptowany"
                 control={
                   <Checkbox
-                    color="secondary"
+                    color="primary"
                     defaultChecked
                     onChange={(e) =>
                       setFormState({
@@ -246,7 +246,7 @@ export const AddDogForm = () => {
                 }
               />
               <Button
-                color="secondary"
+                color="primary"
                 component="label"
                 startIcon={<AddAPhotoIcon />}
               >
@@ -261,7 +261,7 @@ export const AddDogForm = () => {
                 Dodaj zdjęcie
               </Button>
               <Button
-                color="secondary"
+                color="primary"
                 variant="outlined"
                 onClick={(e) => {
                   handleRequired();
@@ -270,7 +270,7 @@ export const AddDogForm = () => {
                 WRÓĆ
               </Button>
               <Button
-                color="secondary"
+                color="primary"
                 variant="outlined"
                 type="submit"
                 onClick={handleSubmit}
@@ -290,7 +290,7 @@ export const AddDogForm = () => {
                 </Typography>
               </Box>
               <TextField
-                color="secondary"
+                color="primary"
                 type="text"
                 value={formState.name}
                 onChange={(e) =>
@@ -303,7 +303,7 @@ export const AddDogForm = () => {
                 required
               />
               <TextField
-                color="secondary"
+                color="primary"
                 type="text"
                 value={formState.breed}
                 onChange={(e) =>
@@ -316,11 +316,11 @@ export const AddDogForm = () => {
                 required
               />
               <FormControl
-                color="secondary"
+                color="primary"
                 sx={{ m: 1, minWidth: 120 }}
                 size="small"
               >
-                <InputLabel color="secondary" id="demo-select-small">
+                <InputLabel color="primary" id="demo-select-small">
                   Płeć
                 </InputLabel>
                 <Select
@@ -340,7 +340,7 @@ export const AddDogForm = () => {
                 </Select>
               </FormControl>
               <TextField
-                color="secondary"
+                color="primary"
                 id="date"
                 label="Data urodzenia"
                 type="date"
@@ -355,7 +355,7 @@ export const AddDogForm = () => {
                 }}
               />
               <TextField
-                color="secondary"
+                color="primary"
                 id="date"
                 label="Data szczepienia p/wściekliźnie"
                 type="date"
@@ -373,7 +373,7 @@ export const AddDogForm = () => {
                 }}
               />
               <TextField
-                color="secondary"
+                color="primary"
                 type="number"
                 value={formState.weight}
                 onChange={(e) =>
@@ -386,7 +386,7 @@ export const AddDogForm = () => {
                 required
               />
               <TextField
-                color="secondary"
+                color="primary"
                 type="number"
                 value={formState.box}
                 onChange={(e) =>
@@ -400,7 +400,7 @@ export const AddDogForm = () => {
               />
               <Button
                 aria-describedby={id}
-                color="secondary"
+                color="primary"
                 variant="outlined"
                 onClick={(e) => {
                   handleRequired(e.target);
