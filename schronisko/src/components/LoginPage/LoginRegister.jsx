@@ -49,7 +49,6 @@ export const LoginRegister = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     registerUser(inputEmail, inputPassword);
-    navigate("/dogs");
   };
 
   const resetPassword = () => {
