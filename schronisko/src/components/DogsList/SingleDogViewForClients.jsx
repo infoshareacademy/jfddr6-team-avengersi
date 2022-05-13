@@ -28,8 +28,8 @@ const SingleDogViewForClients = ({ id }) => {
         marginTop: "10px",
       }}
     >
-      <Grid container spacing={0} columns={14}>
-        <Grid item xs={14} sm={6} md={3}>
+      <Grid container spacing={0} columns={16}>
+        <Grid item xs={16} sm={6} md={3}>
           <Grid container spacing={0} columns={3}>
             <Grid item xs={3} sm={3} md={3}>
               <Item
@@ -39,13 +39,12 @@ const SingleDogViewForClients = ({ id }) => {
                 elevation={0}
               >
                 <GetDogPhotoForList id={id} />
-                <Link to={`/dog/${id}`}>More info...</Link>
               </Item>
             </Grid>
           </Grid>
         </Grid>
 
-        <Grid item xs={14} sm={4} md={3}>
+        <Grid item xs={16} sm={4} md={3}>
           <Grid container spacing={0} columns={3}>
             <Grid item xs={1} sm={3} md={3}>
               <Item
@@ -70,9 +69,9 @@ const SingleDogViewForClients = ({ id }) => {
           </Grid>
         </Grid>
 
-        <Grid item xs={14} sm={4} md={4}>
-          <Grid container spacing={0} columns={5}>
-            <Grid item xs={5} sm={5} md={4}>
+        <Grid item xs={16} sm={6} md={6}>
+          <Grid container spacing={0} columns={6}>
+            <Grid item xs={6} sm={6} md={6}>
               <Item
                 sx={{
                   padding: "0",
@@ -84,7 +83,7 @@ const SingleDogViewForClients = ({ id }) => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={14} sm={4} md={3}>
+        <Grid item xs={16} sm={4} md={3}>
           <Grid container spacing={0} columns={3}>
             <Grid item xs={3} sm={3} md={3}>
               <Item
