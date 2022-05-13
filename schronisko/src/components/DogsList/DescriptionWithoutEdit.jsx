@@ -20,7 +20,7 @@ export default function DescriptionWithoutEdit({ id }) {
     setDogs(dogsData);
 
     setDescription(
-      dogsData.filter((element) => element.id === id)[0].data.dogsDescription
+      dogsData.filter((element) => element.id === id)[0].data.description
     );
   };
 
