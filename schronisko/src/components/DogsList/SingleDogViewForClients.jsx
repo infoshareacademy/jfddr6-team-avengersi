@@ -25,7 +25,8 @@ const SingleDogViewForClients = ({ id }) => {
       sx={{
         width: "70%",
         backgroundColor: "#f6f7fa",
-        marginTop: "10px",
+        marginTop: "15px",
+        marginBottom: "10px",
       }}
     >
       <Grid container spacing={0} columns={16}>
@@ -46,7 +47,7 @@ const SingleDogViewForClients = ({ id }) => {
 
         <Grid item xs={16} sm={4} md={3}>
           <Grid container spacing={0} columns={3}>
-            <Grid item xs={1} sm={3} md={3}>
+            <Grid item xs={3} sm={3} md={3}>
               <Item
                 sx={{
                   padding: "0",
@@ -56,7 +57,7 @@ const SingleDogViewForClients = ({ id }) => {
                 <IconNameBreed id={id} />
               </Item>
             </Grid>
-            <Grid item xs={1} sm={3} md={3}>
+            <Grid item xs={3} sm={3} md={3}>
               <Item
                 sx={{
                   padding: "0",
