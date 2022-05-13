@@ -50,7 +50,7 @@ export const LoginRegister = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     registerUser(inputEmail, inputPassword);
-    navigate("/psy");
+    navigate("/dogs");
   };
 
   const resetPassword = () => {

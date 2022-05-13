@@ -18,13 +18,37 @@ import CastratedChkbx from "../../components/Checkboxes/CastrartedChkbx";
 import Comment from "../../components/Comment/AddComment";
 import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
-
 import ButtonDelete from "../Buttons/ButtonDelete";
 import ListOfComments from "../Comment/ListOfComments";
+import { doc, getDoc } from "firebase/firestore";
+import { useState } from "react";
+import { db } from "../../db";
 
 const SingleDogViewWithEdition = () => {
   const params = useParams();
   const id = params.id;
+
+  const [walksList, setWalksList] = useState([]);
+  const [commentList, setCommentList] = useState([]);
+  const [dogsDescriptionValue, setDogsDescriptionValue] = useState("");
+
+  const getDogs = async () => {
+    const docReferrence = doc(db, "dogs", id);
+    // console.log(id);
+    const dogDocument = await getDoc(docReferrence);
+
+    const dogData = {
+      id: dogDocument.id,
+      walks: dogDocument.data().walks,
+      comments: dogDocument.data().comments,
+      description: dogDocument.data().description,
+    };
+    // console.log(id);
+    setWalksList(dogData.walks.slice(-3).reverse());
+    setCommentList(dogData.comments.slice(-3).reverse());
+    setDogsDescriptionValue(dogData.description);
+  };
+
   return (
     <>
       <Container sx={{ mt: 2 }}>
@@ -59,7 +83,7 @@ const SingleDogViewWithEdition = () => {
           sx={{
             marginTop: "20px",
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: "top",
             padding: "20px",
           }}
         >
@@ -67,8 +91,13 @@ const SingleDogViewWithEdition = () => {
             <ButtonFeeding id={id} />
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
-            <ButtonWalk id={id} />
-            {/* <WalksHistory /> */}
+            <ButtonWalk id={id} getDogs={getDogs} />
+            <WalksHistory
+              id={id}
+              getDogs={getDogs}
+              walksList={walksList}
+              sx={{ pl: 1 }}
+            />
           </Grid>
           <Grid item xs={12} sm={6} md={2}>
             <ButtonCleaning id={id} />
@@ -91,11 +120,19 @@ const SingleDogViewWithEdition = () => {
           }}
         >
           <Grid item xs={12} sm={12} md={6}>
-            <Comment id={id} />
-            <ListOfComments id={id} />
+            <Comment id={id} getDogs={getDogs} />
+            <ListOfComments
+              id={id}
+              getDogs={getDogs}
+              commentList={commentList}
+            />
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <Description id={id} />
+            <Description
+              id={id}
+              dogsDescriptionValue={dogsDescriptionValue}
+              setDogsDescriptionValue={setDogsDescriptionValue}
+            />
           </Grid>
           <Grid item xs={12} sm={6} md={2} sx={{ textAlign: "center" }}>
             <CastratedChkbx id={id} />

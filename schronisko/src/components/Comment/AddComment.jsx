@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@mui/material";
 import { Container } from "@mui/material";
 import { TextField, Box } from "@mui/material";
@@ -6,7 +6,7 @@ import { useState } from "react";
 import { db } from "../../db";
 import { updateDoc, doc, arrayUnion } from "firebase/firestore";
 
-export default function AddComment({ id }) {
+export default function AddComment({ id, getDogs }) {
   const dog = {
     id: id,
     comment: "",
@@ -19,7 +19,6 @@ export default function AddComment({ id }) {
       comments: arrayUnion({ comment: commentValue, date: Date.now() }),
     });
 
-    console.log(result);
     setCommentValue(commentValue);
   }, [commentValue]);
 
@@ -27,6 +26,7 @@ export default function AddComment({ id }) {
     (e) => {
       e.preventDefault();
       submitComment();
+      getDogs();
     },
     [submitComment]
   );
@@ -36,7 +36,7 @@ export default function AddComment({ id }) {
   }, []);
 
   return (
-    <Container>
+    <Container style={{ paddingLeft: 0 }}>
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <TextField
           label="Komentarz"
@@ -50,8 +50,13 @@ export default function AddComment({ id }) {
           sx={{ mb: 1 }}
         />
         <Box>
-          <Button variant="contained" color="primary" type="submit">
-            Ok
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            disabled={commentValue.trim().length === 0}
+          >
+            Zapisz
           </Button>
         </Box>
       </form>

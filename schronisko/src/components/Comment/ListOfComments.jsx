@@ -7,26 +7,26 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
+import moment from "moment";
 
-function ListOfComments({ id }) {
-  const [commentList, setCommentList] = useState([]);
+function ListOfComments({ id, getDogs, commentList }) {
   // let id = "d6a027ba-3de2-4e66-82ba-d5fff99ccbad"; // propsy
 
-  const GetDogs = async () => {
-    const docReferrence = doc(db, "dogs", id);
+  // const getDogs = async () => {
+  //   const docReferrence = doc(db, "dogs", id);
 
-    const dogDocument = await getDoc(docReferrence);
+  //   const dogDocument = await getDoc(docReferrence);
 
-    const dogData = {
-      id: dogDocument.id,
-      comments: dogDocument.data().comments,
-    };
+  //   const dogData = {
+  //     id: dogDocument.id,
+  //     comments: dogDocument.data().comments,
+  //   };
 
-    setCommentList(dogData.comments.slice(-3).reverse());
-  };
+  //   setCommentList(dogData.comments.slice(-3).reverse());
+  // };
 
   useEffect(() => {
-    GetDogs();
+    getDogs();
   }, []);
 
   return (
@@ -34,8 +34,9 @@ function ListOfComments({ id }) {
       sx={{
         width: "100%",
         maxWidth: 360,
-        bgcolor: "background.paper",
+        // bgcolor: "background.paper",
         fontFamily: "Roboto, Helvetica, Arial,sans-serif",
+        ml: 4,
       }}
     >
       <nav>
@@ -43,7 +44,9 @@ function ListOfComments({ id }) {
           {commentList.map((comment) => {
             return (
               <ListItem disablePadding key={comment.date}>
-                <ListItemText primary={new Date(comment.date).getFullYear()} />
+                <ListItemText
+                  primary={moment(new Date(comment.date)).format("LLL")}
+                />
                 <ListItemText primary={comment.comment} />
                 <Divider />
               </ListItem>

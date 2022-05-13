@@ -1,23 +1,22 @@
 import { Box, Button, Modal, TextField } from "@mui/material";
-import { doc, onSnapshot, updateDoc } from "firebase/firestore";
+import { doc, onSnapshot, updateDoc, arrayUnion } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../db";
 import TransferWithinAStationIcon from "@mui/icons-material/TransferWithinAStation";
 import moment from "moment";
 
-const ButtonWalk = ({ id }) => {
+const ButtonWalk = ({ id, getDogs }) => {
   const [dog, setDog] = useState([]);
-
-  // const id = "25f6188c-1f41-4894-81a2-ecf376ec0b9f"; //props
 
   //pobieranie danych:
 
   useEffect(() => {
     const docRef = doc(db, "dogs", id);
     onSnapshot(docRef, (doc) => {
-      const timeStamp = doc.data().walk;
-      const date = new Date(timeStamp);
-
+      const allWalks = doc.data().walks;
+      // console.log("allWalks", allWalks);
+      const date = new Date(allWalks[allWalks.length - 1].date);
+      // console.log("date", date);
       const oneDog = {
         walk: moment(date).fromNow(),
       };
@@ -42,19 +41,20 @@ const ButtonWalk = ({ id }) => {
   };
 
   const [dateTime, setDateTime] = useState(new Date());
+
   const addTime = async () => {
     const walk = new Date(dateTime).getTime();
 
     await updateDoc(doc(db, "dogs", id), {
-      walk,
+      walks: arrayUnion({ date: walk }),
     });
-    console.log("Wysłano");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addTime();
     handleClose();
+    getDogs();
   };
 
   return (

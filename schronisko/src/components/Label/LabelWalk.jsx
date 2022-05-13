@@ -11,8 +11,9 @@ const LabelWalk = ({ id }) => {
   useEffect(() => {
     const docRef = doc(db, "dogs", id);
     onSnapshot(docRef, (doc) => {
-      const timeStamp = doc.data().walk;
-      const date = new Date(timeStamp);
+      const allWalks = doc.data().walks;
+      // const date = new Date(timeStamp);
+      const date = new Date(allWalks[allWalks.length - 1].date);
 
       const oneDog = {
         walk: moment(date).fromNow(),
@@ -27,6 +28,7 @@ const LabelWalk = ({ id }) => {
         variant="outlined"
         startIcon={<TransferWithinAStationIcon />}
         size="large"
+        sx={{ m: 0.2 }}
       >
         {dog.walk}
       </Button>

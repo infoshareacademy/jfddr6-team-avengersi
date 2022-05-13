@@ -12,18 +12,16 @@ const AgeWeight = ({ id }) => {
   useEffect(() => {
     const docRef = doc(db, "dogs", id);
     onSnapshot(docRef, (doc) => {
+      const timeStamp = doc.data().dateOfBirth;
+      const date = new Date(timeStamp);
+
       const oneDog = {
-        dateOfBirth: doc.data().dateOfBirth,
+        dateOfBirth: moment().diff(moment(date, "DD MMM YYYY"), "years"),
         weight: doc.data().weight,
-        // age: moment(doc.data().ageTest.toDate()).fromNow(),
-        age: moment().diff(doc.data().ageTest.toDate(), "years"),
       };
       setDog(oneDog);
     });
   }, []);
-
-  // const age = dog.age?.toDate();
-  // const age = moment(dog.age.toDate()).fromNow();
 
   return (
     <div className={styles.main}>
@@ -34,7 +32,7 @@ const AgeWeight = ({ id }) => {
         {/* <Typography variant="h6">{dog.dateOfBirth}</Typography> */}
         <Typography variant="h6">Waga: {dog.weight} kg</Typography>
         <Typography variant="h6">
-          Wiek: {dog.age} {dog.age < 1 ? "rok" : "lat"}
+          Wiek: {dog.dateOfBirth} {dog.age < 1 ? "rok" : "lat"}
         </Typography>
       </div>
     </div>
