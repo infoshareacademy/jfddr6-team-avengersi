@@ -24,7 +24,6 @@ export const Footer = () => {
       sx={{
         display: "grid",
         gridTemplateColumns: "repeat(3, 1fr)",
-        // position: "fixed",
         bottom: 0,
         width: "100%",
         boxShadow: "0px 0px 18px -15px rgba(89, 105, 101, 1)",

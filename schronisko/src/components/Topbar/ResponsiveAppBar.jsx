@@ -48,7 +48,6 @@ const ResponsiveAppBar = () => {
 
   const handleLogOut = () => {
     signOut(auth);
-    console.log("wylogowano");
     navigate("/");
   };
   return (

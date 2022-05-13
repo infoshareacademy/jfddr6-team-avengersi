@@ -37,7 +37,6 @@ export const LoginRegister = () => {
   };
 
   const registerUser = async (email, password) => {
-    // eslint-disable-next-line
     const response = await createUserWithEmailAndPassword(
       auth,
       email,

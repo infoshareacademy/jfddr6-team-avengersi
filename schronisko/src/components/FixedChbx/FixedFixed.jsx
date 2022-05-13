@@ -15,7 +15,6 @@ export const FixedFixed = ({ id }) => {
         fixed: doc.data().fixed,
       };
       setIsFixed(oneDog);
-      // console.log(oneDog);
     });
   }, []);
 

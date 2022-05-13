@@ -84,7 +84,6 @@ export const AddDogForm = () => {
       description: "",
       comment: "",
     });
-    console.log("dog added");
   };
 
   const [imageUpload, setImageUpload] = useState(null);
@@ -92,7 +91,6 @@ export const AddDogForm = () => {
   const uploadPhotos = () => {
     const imageRef = ref(storage, `DogPhotos/${dogId}/${imageUpload.name}`);
     uploadBytes(imageRef, imageUpload);
-    console.log("image uploaded");
   };
 
   const handleSubmit = (e) => {

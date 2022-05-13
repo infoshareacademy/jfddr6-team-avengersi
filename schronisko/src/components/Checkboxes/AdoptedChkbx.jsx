@@ -13,7 +13,6 @@ const AdoptedChkbx = ({ id }) => {
     const unsubscribe = onSnapshot(docRef, (doc) => {
       const adopted = doc.data().adopted;
       setIsAdopted(adopted);
-      // console.log(adopted);
     });
     return unsubscribe;
   }, []);
