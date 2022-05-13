@@ -49,7 +49,7 @@ const SingleDogView = ({ id }) => {
                     textDecoration: "none",
                     color: "#4C5075",
                     fontFamily: "Roboto, Helvetica, Arial,sans-serif",
-                    fontWeight: 700,
+                    fontWeight: 500,
                   }}
                 >
                   Więcej informacji...
